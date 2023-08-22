@@ -6,28 +6,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <title>To Do List</title>
 </head>
 <body>
-    <h1>To Do List</h1>
+    <header>
+        <h1>To-Do List </h1>
+    </header>
 
     <main>
         <div class="card">
-            <input type="text" />
-            <button type="button">Adicionar</button>
+            <div class="inicio">
+                <select name="visualizacao" id="visualizacao">
+                    <option value="all" selected>All</option>
+                    <option value="checks">Checks</option>
+                    <option value="pendents">Pendents</option>
+                </select>
+                <div class="dados">
+                    <input type="text" placeholder="Write your ask" id="textTask" />
+                    <button type="button" onclick="add()">Add</button>
+                </div>
+            </div>
 
-            <div id="tasks">
-                <!-- task temporaria -->
-                <div class="temp">
-                    <span>Uma task temporária</span>
-                    <input type="checkbox" class="check"/>
-                    <input type="checkbox" class="delet"/>
+            <div class="tasks">
+                <div class="t">
+                    <input type="checkbox" />
+                    <p>Um texto por aqui por dentro</p>
+                    <span></span>
+                </div>
+
+                <div class="t">
+                    <input type="checkbox" />
+                    <p>Um texto por aqui por dentro</p>
+                    <span></span>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer>
+        <span>Criado por Talyslan C. P. Canabarro ©</span>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

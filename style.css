@@ -4,11 +4,81 @@
     box-sizing: border-box;
 }
 
+:root {
+    --black:#313132;
+    --white: #FFFFFC;
+    --purple: #AA46FF;
+    --red: #F87C8F;
+    --blue: #639CF0;
+}
+
 body, button, input {
     font-family: 'Rubik', sans-serif;
 }
 
 body {
-    background: #242424;
-    color: #fff;
+    background: var(--purple);
+    color: var(--white);
+}
+
+/* Header */
+header {
+    background: var(--black);
+    width: 100%;
+}
+
+header h1 {
+    padding: 12px 0;
+    font-size: 3em;
+    text-align: center;
+}
+
+/* Main */
+main,
+.card,
+.inicio,
+.tasks,
+.t {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    background: var(--black);
+    padding: 32px;
+    border-radius: 8px;;
+    margin: 15%;
+    height: 25em;
+    width: 20em;
+    gap: 40px;
+}
+
+.card .inicio {
+    background: #AA46FF;
+    gap: 24px;
+}
+
+.card .tasks {
+    gap: 16px;
+}
+
+.card .tasks .t {
+    flex-direction: row;
+    gap: 16px;
+}
+
+.card .tasks .t span {
+    width: 5px;
+    background: rgb(219, 32, 32);
+    height: 5px;
+}
+
+/* Footer */
+footer span {
+    text-align: center;
+    display: block;
+    padding: 12px 0;
+    opacity: .6;
 }

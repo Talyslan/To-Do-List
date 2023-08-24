@@ -1,12 +1,9 @@
 const box = document.querySelector('.box-task');
 
+const task = () => {return {feito: false, texto: undefined}};
+
 function add() {
   const value = document.querySelector('#textTask').value;
-  
-  const task = {
-    feito: false,
-    texto: undefined,
-  };
 
   task.texto = value;
 

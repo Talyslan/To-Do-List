@@ -16,3 +16,5 @@ Programa sendo feito a fim de nota de um projeto de Programação Orientada a Ob
 ### 4.Dificuldades encontradas:
 
 ## 🔗 Referências:
+Site: Figma (<a href="https://www.figma.com/file/sOtJCJeaqLqbe5BqRjNqdB/To-Do-List?node-id=9%3A123&mode=dev">https://www.figma.com/file/sOtJCJeaqLqbe5BqRjNqdB/To-Do-List?node-id=9%3A123&mode=dev</a>) para a base do design do projeto.
+Consulta no site "hora de codar" (<a href="https://horadecodar.com.br/como-verificar-se-um-checkbox-esta-checado-c-javascript-ou-jquery/">https://horadecodar.com.br/como-verificar-se-um-checkbox-esta-checado-c-javascript-ou-jquery/</a>) para identificar com JavaScript se um input do tipo checkbox está marcado ou não

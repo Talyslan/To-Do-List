@@ -12,12 +12,11 @@ const activies = {
       <div class="task">
           <input type="checkbox" />
           <p>${task.text}</p>
-          <span></span>
+          <span>X</span>
       </div>
       `;
 
       task_list.push(task);
-      console.log(task_list);
   },
   
   //VER EVENT LISTENER

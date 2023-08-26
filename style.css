@@ -58,7 +58,7 @@ main {
     padding: 32px;
     border-radius: 8px;;
     height: 85%;
-    width: 80%;
+    width: 85%;
     max-width: 450px;
     gap: 40px;
     box-shadow: 0 4px 8px 0 #00081cb5;
@@ -109,6 +109,8 @@ button:hover {
 /* TASKS */
 .card .box-task {
     gap: 16px;
+    overflow-y: auto;
+    padding: 12px;
 }
 
 .card .box-task .task {
@@ -116,6 +118,7 @@ button:hover {
     justify-content: space-between;
     gap: 24px;
     background: #58585a;
+    width: 100%;
     padding: 12px;
     border-radius: 5px;
     box-shadow: -3px 4px 12px 0px #00081cb5;
@@ -159,4 +162,13 @@ footer span {
     display: block;
     padding: 12px 0;
     opacity: .6;
+}
+
+/* Claasses para JS */
+.delete {
+    display: none;
+}
+
+.risk {
+    text-decoration: line-through;
 }

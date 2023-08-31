@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
     <title>To Do List</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <main>
         <div class="card">
             <div class="inicio">
-                <select id="visualizacao" onclick="filter.returns(this)">
+                <select id="visualizacao" onchange="filter.returns(this)">
                     <option value="all" selected>All</option>
                     <option value="checks">Checks</option>
                     <option value="pendents">Pendents</option>

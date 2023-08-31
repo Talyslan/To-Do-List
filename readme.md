@@ -27,3 +27,5 @@ Programa sendo feito a fim de nota de um projeto de Programação Orientada a Ob
 - Site: <strong>W3Schools</strong> (<a href="https://www.w3schools.com/jsref/prop_element_children.asp" target="_blank">https://www.w3schools.com/jsref/prop_element_children.asp</a>) para saber como acessar os elementos filhos de um elemento HTML
 
 - Site: (<a href="https://pt.stackoverflow.com/questions/441373/como-remover-todos-os-elementos-de-uma-div-em-javascript" target="_blank">https://pt.stackoverflow.com/questions/441373/como-remover-todos-os-elementos-de-uma-div-em-javascript</a>) para destruir um elemento HTML com JavaScript.
+
+- Site: <strong>MDN Web Docs</strong> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event</a>) para utilização do "value" pegado da tag "select".

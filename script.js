@@ -5,10 +5,10 @@ const select = document.querySelector("#visualizacao");
 const task_list = [];
 let identify = 0;
 
-// Função para limpar o input
+// Limpar o input
 const clearInput = () => valueInput.value = "";
 
-// Função para verificar se o input tem algo escrito
+// Verificação: o input tem algo escrito?
 const verify = () => {
   if (valueInput.value == "") {
     error.innerText = "Error! Write something";
@@ -20,7 +20,7 @@ const verify = () => {
   }
 }
 
-// Função para alterar valores de um item na Lista de Tasks
+// Alteração de valores de um item na Lista de Tasks (task_list)
 const modify = (completedValue, categoryValue, e, action) => {
   e.parentNode.children[1].classList[action]("risk");
 
@@ -46,7 +46,7 @@ class Task {
   };
 };
 
-// Funções para adicionar, remover e dizer se a task está feita
+// Adicionar, remover e dizer se a task está feita
 const activies = {
   add: function() {
     if (verify()) {
@@ -57,6 +57,7 @@ const activies = {
       task_list.push(taskTemp);
       
       identify++;
+      console.log(box.children)
       clearInput();
     }
   },
@@ -86,19 +87,17 @@ const filter = {
     else if (select.value == "pendents")
       this.pendents();
   },
-  all: function() {
-    this.resetAllTasks();
-  },
-  checks: function() {
-    this.resetAllTasks();
-  },
-  pendents: function() {
-    this.resetAllTasks();
-  },
+  all: function() { },
+  checks: function() { },
+  pendents: function() { },
   resetAllTasks: function() {
-    for (const son of box.children)
-      son.remove();
 
-      identify = 0;
+    console.log(box.children)
+    for (const son of box.children) {
+      console.log(son)
+      son.remove();
+    }
+
+    identify = 0;
   }
 };

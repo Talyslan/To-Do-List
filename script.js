@@ -125,7 +125,6 @@ const filter = {
 
       // Readicionar os que já estavam checks
       const tasks_html = document.querySelectorAll(".task");
-      console.log(tasks_html)
 
       for (const i in task_list) {
         if (task_list[i].completed) {
@@ -135,8 +134,54 @@ const filter = {
       }
 
   },
-  checks: function() {},
-  pendents: function() {},
+  checks: function() {
+    if (card.children[1] === undefined) 
+      card.innerHTML += `<div class="box-task"></div>`;
+
+      for (const task of task_list) {
+        if (task.category === "checks") 
+          card.children[1].innerHTML += `
+          <div class="task" id=${task.id}>
+            <input type="checkbox" onclick="activies.checked(this)" />
+            <p>${task.text}</p>
+            <span onclick="activies.remove(this)">X</span>
+          </div>`;
+      }
+
+      // Readicionar os que já estavam checks
+      const tasks_html = document.querySelectorAll(".task");
+
+      for (const i in task_list) {
+        if (task_list[i].completed) {
+          tasks_html[i].children[0].checked = true;
+          tasks_html[i].children[0].classList.add("risk");
+        } 
+      }
+  },
+  pendents: function() {
+    // if (card.children[1] === undefined) 
+    //   card.innerHTML += `<div class="box-task"></div>`;
+
+    //   for (const task of task_list) {
+    //     if (task.category === "pendents") 
+    //       card.children[1].innerHTML += `
+    //       <div class="task" id=${task.id}>
+    //         <input type="checkbox" onclick="activies.checked(this)" />
+    //         <p>${task.text}</p>
+    //         <span onclick="activies.remove(this)">X</span>
+    //       </div>`;
+    //   }
+
+    //   // Readicionar os que já estavam checks
+    //   const tasks_html = document.querySelectorAll(".task");
+
+    //   for (const i in task_list) {
+    //     if (task_list[i].completed) {
+    //       tasks_html[i].children[0].checked = true;
+    //       tasks_html[i].children[0].classList.add("risk");
+    //     } 
+    //   }
+  },
   resetBoxTasks: function() {
     //pega o novo box
     const box = document.querySelector(".box-task");

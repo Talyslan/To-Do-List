@@ -156,6 +156,10 @@ input[type="checkbox"]:checked {
     cursor: pointer;
 }
 
+.card .box-task p {
+    max-width: 90px;
+}
+
 /* Footer */
 footer span {
     text-align: center;
@@ -165,10 +169,6 @@ footer span {
 }
 
 /* Claasses para JS */
-.delete {
-    display: none;
-}
-
 .risk {
     text-decoration: line-through;
 }

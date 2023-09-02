@@ -1,7 +1,8 @@
-const card = document.querySelector(".card");
 const valueInput = document.querySelector("input[type='text']");
-const error = document.querySelector("#error");
 const select = document.querySelector("#visualizacao");
+const box = document.querySelector(".box-task");
+const error = document.querySelector("#error");
+const card = document.querySelector(".card");
 const task_list = [];
 let identify = 0;
 
@@ -10,7 +11,7 @@ const clearInput = () => valueInput.value = "";
 
 // Verificação: o input tem algo escrito?
 const verify = () => {
-  if (valueInput.value == "") {
+  if (valueInput.value === "") {
     error.innerText = "Error! Write something";
     return false;
   }
@@ -24,10 +25,8 @@ const verify = () => {
 const modify = (completedValue, categoryValue, e, action) => {
   e.parentNode.children[1].classList[action]("risk");
 
-  let id = e.parentNode.id;
-  console.log(id)
-  task_list[id].completed = completedValue;
-  task_list[id].category = categoryValue;
+  task_list[e.parentNode.id].completed = completedValue;
+  task_list[e.parentNode.id].category = categoryValue;
 }
 
 // Criação da classe Task
@@ -43,7 +42,7 @@ class Task {
     return `
     <div class="task" id=${identify}>
         <input type="checkbox" onclick="activies.checked(this)" />
-        <p>${this.text}</p>
+        <p contenteditable="true">${this.text}</p>
         <span onclick="activies.remove(this)">X</span>
     </div>`;
   };
@@ -53,10 +52,7 @@ class Task {
 const activies = {
   add: function() {
     if (verify()) {
-      console.log(task_list)
-      const taskTemp = new Task(valueInput.value);      
-      //pega o novo box
-      const box = document.querySelector(".box-task");
+      const taskTemp = new Task(valueInput.value);
 
       box.innerHTML += taskTemp.basesHTML();
 
@@ -65,27 +61,24 @@ const activies = {
       clearInput();
     }
   },
-  remove:function(element) {
-    element.parentNode.remove()
-
-    // Remover o objeto da lista
+  remove: function(element) {
+    // Remover o objeto da lista e do HTML
     task_list.splice(element.parentNode.id, 1);
+    element.parentNode.remove();
 
     // Redifinir os valores dos ids dos objetos no JS e no HTML
-    for (const i in task_list) {
-      task_list[i].id = Number(i);
-    }
-
     const tasks_html = document.querySelectorAll(".task");
-    for (const i in tasks_html) {
+
+    for (const i in tasks_html)
       tasks_html[i].id = Number(i); 
-    }
+
+    for (const i in task_list)
+      task_list[i].id = Number(i);
     
-    // Diminuindo o valor do Id porque 1 elemento foi retirado
+    // Diminuindo o valor do Identify porque 1 elemento foi retirado
     identify--;
   },
   checked: function(element) {
-    
     //acessando ele na Lista de Tasks (task_list) e verificando o valor das props
     if (element.checked) {
       modify(true, "checks", element, "add");
@@ -109,85 +102,56 @@ const filter = {
     else if (select.value == "pendents")
       this.pendents();
   },
+  resetBoxTasks: function() {
+    while (box.firstChild) {
+      box.removeChild(box.firstChild);
+    }
+      
+  },
   all: function() {
-    //Verifica se a div já existe para não adicionar várias box's
-    if (card.children[1] === undefined) 
-      card.innerHTML += `<div class="box-task"></div>`;
-
-      for (const task of task_list) {
-        card.children[1].innerHTML += `
+      for (const task of task_list)
+        box.innerHTML += `
         <div class="task" id=${task.id}>
           <input type="checkbox" onclick="activies.checked(this)" />
-          <p>${task.text}</p>
+          <p contenteditable="true">${task.text}</p>
           <span onclick="activies.remove(this)">X</span>
         </div>`;
-      }
 
       // Readicionar os que já estavam checks
       const tasks_html = document.querySelectorAll(".task");
-
-      for (const i in task_list) {
+      for (const i in task_list)
         if (task_list[i].completed) {
           tasks_html[i].children[0].checked = true;
-          tasks_html[i].children[0].classList.add("risk");
+          tasks_html[i].children[1].classList.add("risk");
         } 
-      }
 
-  },
+   },
   checks: function() {
-    if (card.children[1] === undefined) 
-      card.innerHTML += `<div class="box-task"></div>`;
+    for (const task of task_list) 
+      if (task.category === "checks")
+        box.innerHTML += `
+        <div class="task" id=${task.id}>
+          <input type="checkbox" onclick="activies.checked(this)" />
+          <p contenteditable="true">${task.text}</p>
+          <span onclick="activies.remove(this)">X</span>
+        </div>`;
 
-      for (const task of task_list) {
-        if (task.category === "checks") 
-          card.children[1].innerHTML += `
-          <div class="task" id=${task.id}>
-            <input type="checkbox" onclick="activies.checked(this)" />
-            <p>${task.text}</p>
-            <span onclick="activies.remove(this)">X</span>
-          </div>`;
-      }
-
-      // Readicionar os que já estavam checks
-      const tasks_html = document.querySelectorAll(".task");
-
-      for (const i in task_list) {
-        if (task_list[i].completed) {
-          tasks_html[i].children[0].checked = true;
-          tasks_html[i].children[0].classList.add("risk");
-        } 
-      }
+    // Readicionar os que já estavam checks
+    const tasks_html = document.querySelectorAll(".task");
+    for (const i in task_list)
+      if (task_list[i].completed) {
+        tasks_html[i].children[0].checked = true;
+        tasks_html[i].children[1].classList.add("risk");
+      } 
   },
   pendents: function() {
-    // if (card.children[1] === undefined) 
-    //   card.innerHTML += `<div class="box-task"></div>`;
-
-    //   for (const task of task_list) {
-    //     if (task.category === "pendents") 
-    //       card.children[1].innerHTML += `
-    //       <div class="task" id=${task.id}>
-    //         <input type="checkbox" onclick="activies.checked(this)" />
-    //         <p>${task.text}</p>
-    //         <span onclick="activies.remove(this)">X</span>
-    //       </div>`;
-    //   }
-
-    //   // Readicionar os que já estavam checks
-    //   const tasks_html = document.querySelectorAll(".task");
-
-    //   for (const i in task_list) {
-    //     if (task_list[i].completed) {
-    //       tasks_html[i].children[0].checked = true;
-    //       tasks_html[i].children[0].classList.add("risk");
-    //     } 
-    //   }
-  },
-  resetBoxTasks: function() {
-    //pega o novo box
-    const box = document.querySelector(".box-task");
-
-    // Verifica se a Box existe para poder removê-la
-    if (card.children[1] !== undefined)
-      box.remove();
+    for (const task of task_list) 
+      if (task.category === "pendents")
+        box.innerHTML += `
+        <div class="task" id=${task.id}>
+          <input type="checkbox" onclick="activies.checked(this)" />
+          <p contenteditable="true">${task.text}</p>
+          <span onclick="activies.remove(this)">X</span>
+        </div>`;
   }
 };

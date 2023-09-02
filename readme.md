@@ -14,10 +14,12 @@ Sim, todas as implementações de adicionar, excluir, modificar e visualizar as 
 Sim, há um problema na hora da filtração de tarefas, especificamente no filtro "Checks" (Há um comentário no código apontando o erro).
 
 ### 3.Descrição da experiência:
-- Apesar de ter conseguido desenvolver boa parte com tranquilidade, tive alguns momentos de travada e pensar muito no que fazer por conta do conjunto HTML, CSS e JS. Porém, gostei muito de ter escrito esse código e tentei deixar ele o mais limpo e atualizado com o conhecimento que eu tenho.
+- Apesar de ter conseguido desenvolver boa parte com tranquilidade, tive alguns momentos de travada e pensar muito no que fazer por conta do conjunto HTML, CSS e JS, principalmente manipulação do DOM. Porém, gostei muito de ter escrito esse código e tentei deixar ele o mais limpo e atualizado com o conhecimento que eu tenho.
 
 ### 4.Dificuldades encontradas:
 - Relacionar as tags com seus respectivos objetos no JavaScript, porém só demandou mais tempo mas consegui relacionar colocando id's sequenciais em cada task e acessando a sua posição na Lista pelo valor de seu id.
+- Apagar os elementos filhos da Box que englobava as tarefas, mas consegui.
+- A filtragem me demandou um tempo também.
 
 ## 🔗 Referências:
 - Site: <strong>Figma</strong> (<a href="https://www.figma.com/file/sOtJCJeaqLqbe5BqRjNqdB/To-Do-List?node-id=9%3A123&mode=dev" target="_blank">https://www.figma.com/file/sOtJCJeaqLqbe5BqRjNqdB/To-Do-List?node-id=9%3A123&mode=dev</a>) para a base do design do projeto.

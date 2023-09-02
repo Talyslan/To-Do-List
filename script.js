@@ -1,15 +1,13 @@
 const valueInput = document.querySelector("input[type='text']");
-const select = document.querySelector("#visualizacao");
+const select = document.querySelector("select");
 const box = document.querySelector(".box-task");
 const error = document.querySelector("#error");
 const card = document.querySelector(".card");
 const task_list = [];
 let identify = 0;
 
-// Limpar o input
 const clearInput = () => valueInput.value = "";
-
-// Verificação: o input tem algo escrito?
+// Verificação: o input tem algo escrito
 const verify = () => {
   if (valueInput.value === "") {
     error.innerText = "Error! Write something";
@@ -19,7 +17,7 @@ const verify = () => {
     error.innerText = "";
     return true;
   }
-}
+};
 
 // Alteração de valores de um item na Lista de Tasks (task_list)
 const modify = (completedValue, categoryValue, e, action) => {
@@ -28,6 +26,15 @@ const modify = (completedValue, categoryValue, e, action) => {
   task_list[e.parentNode.id].completed = completedValue;
   task_list[e.parentNode.id].category = categoryValue;
 }
+
+const basesTask = (id, p) => {
+  return `
+    <div class="task" id=${id}>
+      <input type="checkbox" onclick="activies.checked(this)" />
+      <p contenteditable="true">${p}</p>
+      <span onclick="activies.remove(this)">X</span>
+    </div>`;
+};
 
 // Criação da classe Task
 class Task {
@@ -39,12 +46,7 @@ class Task {
   };
 
   basesHTML() {
-    return `
-    <div class="task" id=${identify}>
-        <input type="checkbox" onclick="activies.checked(this)" />
-        <p contenteditable="true">${this.text}</p>
-        <span onclick="activies.remove(this)">X</span>
-    </div>`;
+    return basesTask(identify, this.text);
   };
 };
 
@@ -57,6 +59,7 @@ const activies = {
       box.innerHTML += taskTemp.basesHTML();
 
       task_list.push(taskTemp);
+
       identify++;
       clearInput();
     }
@@ -79,7 +82,7 @@ const activies = {
     identify--;
   },
   checked: function(element) {
-    //acessando ele na Lista de Tasks (task_list) e verificando o valor das props
+    //acessando ele na task_list e modificando o valor das props
     if (element.checked) {
       modify(true, "checks", element, "add");
     }
@@ -91,9 +94,10 @@ const activies = {
 
 // Visualização do ALL, PENDENTs AND CHECKS
 const filter = {
-  // Apaga a Box-tasks e define qual opção a pessoa escolheu ver
   returns: function(select) {
-    this.resetBoxTasks();
+    // Removendo os elementos
+    while (box.firstChild)
+      box.removeChild(box.firstChild);
 
     if (select.value == "all")
       this.all();
@@ -102,56 +106,46 @@ const filter = {
     else if (select.value == "pendents")
       this.pendents();
   },
-  resetBoxTasks: function() {
-    while (box.firstChild) {
-      box.removeChild(box.firstChild);
-    }
-      
-  },
   all: function() {
-      for (const task of task_list)
-        box.innerHTML += `
-        <div class="task" id=${task.id}>
-          <input type="checkbox" onclick="activies.checked(this)" />
-          <p contenteditable="true">${task.text}</p>
-          <span onclick="activies.remove(this)">X</span>
-        </div>`;
+    for (const task of task_list)
+      box.innerHTML += basesTask(task.id, task.text);
 
-      // Readicionar os que já estavam checks
-      const tasks_html = document.querySelectorAll(".task");
-      for (const i in task_list)
-        if (task_list[i].completed) {
-          tasks_html[i].children[0].checked = true;
-          tasks_html[i].children[1].classList.add("risk");
-        } 
-
+    this.otimize.checkTask();
    },
   checks: function() {
-    for (const task of task_list) 
-      if (task.category === "checks")
-        box.innerHTML += `
-        <div class="task" id=${task.id}>
-          <input type="checkbox" onclick="activies.checked(this)" />
-          <p contenteditable="true">${task.text}</p>
-          <span onclick="activies.remove(this)">X</span>
-        </div>`;
-
-    // Readicionar os que já estavam checks
-    const tasks_html = document.querySelectorAll(".task");
-    for (const i in task_list)
-      if (task_list[i].completed) {
-        tasks_html[i].children[0].checked = true;
-        tasks_html[i].children[1].classList.add("risk");
-      } 
+    this.otimize.condition("checks");
+    this.otimize.checkTask();
   },
   pendents: function() {
-    for (const task of task_list) 
-      if (task.category === "pendents")
-        box.innerHTML += `
-        <div class="task" id=${task.id}>
-          <input type="checkbox" onclick="activies.checked(this)" />
-          <p contenteditable="true">${task.text}</p>
-          <span onclick="activies.remove(this)">X</span>
-        </div>`;
+    this.otimize.condition("pendents");
+  },
+  otimize: {
+    condition: function(cond) {
+      for (const task of task_list) 
+        if (task.category === cond)
+          box.innerHTML += basesTask(task.id, task.text);
+
+    },
+    checkTask: function() {
+      // Readicionar os que já estavam checks
+    const tasks_html = document.querySelectorAll(".task");
+
+    /* ERROR aqui => certos casos o tasks_html[id] quer acessar 
+      um elemento undefined, coloquei essas condições no if para
+      bloquear esse erro porém no visual ele não fica checked na aba
+      de "Checks". Ex: na aba All crie 3 tasks ("a", "b", "c"), agora 
+      marque o "b" e o "c", agora troque para a aba "Checks". "b" não 
+      fica checked pois seu índice não bate com o da task_list, já "c"
+      fica checked.
+    */
+    for (const task of task_list)
+      if (task.completed) {
+        const id = task_list.indexOf(task);
+        if (id >= 0 && id < tasks_html.length) {
+          tasks_html[id].children[0].checked = true;
+          tasks_html[id].children[1].classList.add("risk");
+        }
+      }
+    }
   }
 };

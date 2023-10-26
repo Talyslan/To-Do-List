@@ -6,18 +6,7 @@ const card = document.querySelector(".card");
 const task_list = [];
 let identify = 0;
 
-const clearInput = () => valueInput.value = "";
-// Verificação: o input tem algo escrito
-const verify = () => {
-  if (valueInput.value === "") {
-    error.innerText = "Error! Write something";
-    return false;
-  }
-  else {
-    error.innerText = "";
-    return true;
-  }
-};
+const { clearInput, verifyInput } = require("./interface");
 
 // Alteração de valores de um item na Lista de Tasks (task_list)
 const modify = (completedValue, categoryValue, e, action) => {
@@ -50,10 +39,18 @@ class Task {
   };
 };
 
+class TaskList {
+  constructor() {
+    this._list = [];
+  }
+
+  //adicionar, remover e checar
+}
+
 // Adicionar, remover e dizer se a task está feita
 const activies = {
   add: function() {
-    if (verify()) {
+    if (verifyInput(valueInput.value, error)) {
       const taskTemp = new Task(valueInput.value);
 
       box.innerHTML += taskTemp.basesHTML();

@@ -39,14 +39,14 @@ const basesTask = (id, p) => {
 // Criação da classe Task
 class Task {
   constructor(text) {
-    this.id = identify;
-    this.text = text;
-    this.completed = false;
-    this.category = "pendents";
+    this._id = identify;
+    this._text = text;
+    this._completed = false;
+    this._category = "pendents";
   };
 
   basesHTML() {
-    return basesTask(identify, this.text);
+    return basesTask(this._id, this._text);
   };
 };
 

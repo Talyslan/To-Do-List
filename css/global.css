@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black:#313132;
+    --white: #FFFFFC;
+    --purple: #AA46FF;
+    --red: #F87C8F;
+    --red-hover: #dd6e7e;
+    --blue: #639CF0;
+    --cinza: #58585a;
+}
+
+body, button, input, select {
+    font-family: 'Rubik', sans-serif;
+    border: none;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: #dad7d7; }
+
+body {
+    background: var(--purple);
+    color: var(--white);
+    height: 100vh;
+}
+
+main { height: 80vh; justify-content: center; }
+
+input { border-radius: 3px; }
+input[type="checkbox"] { width: 18px; height: 18px;}
+input[type="checkbox"]:hover { cursor: pointer; }
+input[type="checkbox"]:active { transform: scale(1.1); }
+
+footer span {
+    text-align: center;
+    display: block;
+    padding: 12px 0;
+    opacity: .6;
+}
+
+/* Claasses para JS */
+.risk { text-decoration: line-through; }

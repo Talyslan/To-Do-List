@@ -24,45 +24,71 @@
         <div class="config-Task">
             <h2>Create a task</h2>
 
-            <label for="title">
-                <span>Title Of Your Task</span>
-                <input type="text" placeholder="Write your Title" />
-            </label>
-            
-            <label for="priority">
-                <span>Priority Level:</span>
-                <select id="priority">
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
-            </label>
+            <div class="optionsToTasks">
+                <label for="title">
+                    <span>Title Of Your Task</span>
+                    <input type="text" placeholder="Write your Title" />
+                </label>
+                
+                <label for="description">
+                    <span>Description Of Your Task</span>
+                    <input type="text" placeholder="Write your task description" />
+                </label>
 
-            <br/>
+                
+                
+                <div class="addTags">
+                    <div class="wannaTag">
+                        <span>Do you wanna add tags?</span>
+                        <button type="button">Yes</button>
+                        <button type="button">No</button>
+                    </div>
+                    
+                    <label for="tags">
+                        <input type="text" placeholder="Write your tag">
+                        <button type="button">Add Tag</button>
+                    </label>
+                </div>
+                
+                <label for="priority">
+                    <span>Priority Level:</span>
+                    <select id="priority">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </label>
 
-            <label for="description">
-                <span>Description Of Your Task</span>
-                <br/>
-                <input type="text" placeholder="Write your task description" />
-            </label>
+                <label for="deadline">
+                    <span>Deadline</span>
+                    <input type="date" id="deadline">
+                </label>
 
-            <br/>
+                <div class="repetetiveTask">
+                    <span>Repetetive Task</span>
+                    <button type="button">Yes</button>
+                    <button type="button">No</button>
+                </div>
 
-            <span>Do you wanna add tags?</span>
-            <button type="button">Yes</button>
-            <button type="button">No</button>
-            <br/>
-            <label for="tags">
-                <input type="text" placeholder="Write your tag">
-                <button type="button">Add Tag</button>
-            </label>
+                <label for="startDate">
+                    <span>Start Date</span>
+                    <input type="date" id="startDate">
+                </label>
 
-            <br/>
+                <label for="frequency">
+                    <span>Frequency</span>
+                    <select id="frequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </label>
+            </div>
 
-            <button type="button">Alterate Changes</button>
-            <button type="button">Add Task</button>
-            <button type="button">Delete Task</button>
-            <button type="button">Task Complete</button>
+            <button type="button" id="add">Add Task</button>
+            <button type="button" id="taskComplete">Task Complete</button>
+            <button type="button" id="deleteTask">Delete Task</button>
+            <button type="button" id="alterateTask">Alterate Changes</button>
         </div>
 
         <div class="card">

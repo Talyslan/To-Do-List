@@ -1,6 +1,10 @@
 .config-Task {
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(1px);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    backdrop-filter: blur(3px);
     z-index: 1;
     /*cobrir toda a página*/
     position: fixed;
@@ -9,3 +13,79 @@
     left: 0;
     right: 0;
 }
+
+.config-Task h2 { font-size: 3em; margin: 1em; text-align: center;}
+
+.optionsToTasks { display: flex; gap: 4em; }
+
+button { margin: 5px; }
+
+label[for="description"] textarea {
+    width: 100%;
+    height: 100px;
+}
+
+label[for="description"],
+label[for="deadline"],
+.addTags,
+.repetetiveTask {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1em;
+}
+
+label[for="title"],
+label[for="priority"],
+.wannaTag > span,
+.wannaRepetetiveTask > span { font-size: 1.2em; }
+
+.ladolado { display: flex; flex-direction: column; gap: 3em; }
+
+.baixobaixo {
+    background: var(--blue);
+    border-radius: .6em;
+    margin: 0 auto;
+    width: 85%;
+    max-width: 800px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    align-items: center;
+}
+
+.buttonsTask button { 
+    padding: 1.5em; 
+    border: 2px solid var(--white); 
+    font-weight: bold; 
+    transition: 0.3s ease; 
+}
+
+.buttonsTask button:hover { 
+    cursor: pointer;
+    border: 2px solid var(--white);
+    background: var(--black);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.buttonsTask button:active { transform: scale(1); }
+
+.wannaRepetetiveTask button:first-of-type,
+.wannaTag button:first-of-type,
+.wannaRepetetiveTask button:last-of-type,
+.wannaTag button:last-of-type { transition: 0.3s ease; }
+
+.wannaRepetetiveTask button:first-of-type:active,
+.wannaTag button:first-of-type:active,
+.wannaRepetetiveTask button:last-of-type:active,
+.wannaTag button:last-of-type:active  { transform: scale(0.95); }
+
+/* No's buttons */
+.wannaRepetetiveTask button:last-of-type:hover,
+.wannaTag button:last-of-type:hover { cursor: pointer; background: var(--red); color: var(--white);}
+
+/* Yes's buttons */
+.wannaRepetetiveTask button:first-of-type:hover,
+.wannaTag button:first-of-type:hover { cursor: pointer; background: var(--green); color: var(--white);}

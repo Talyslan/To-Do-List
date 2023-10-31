@@ -12,7 +12,8 @@
     --red: #F87C8F;
     --red-hover: #dd6e7e;
     --blue: #639CF0;
-    --cinza: #58585a;
+    --cinza: #030303;
+    --green: rgb(130, 243, 130);
 }
 
 ::-webkit-scrollbar { width: 3px; }
@@ -52,6 +53,8 @@ button {
     background: var(--white);
     border-radius: 6px;
 }
+
+input { padding: 1em; }
 
 input { border-radius: 3px; }
 input[type="checkbox"] { width: 18px; height: 18px;}

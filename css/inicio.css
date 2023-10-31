@@ -1,0 +1,37 @@
+.inicio {
+    background: linear-gradient(90deg, #A842FF 0%, #f87c8f 39.06%, #639CF0 66.15%, #BA75FF 100%);
+    padding: 16px;
+    gap: 24px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 #00081cb5;
+}
+
+.filter span, .filter select {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--black-texts)
+}
+
+.filter select {
+    background: none;
+    border: 3px solid #00000042;
+    transition: 0.3s ease;
+}
+
+.inicio button {
+    border: solid var(--blue) 2px;
+    box-shadow: 0px 5px 5px 0px #00000040;
+    transition: 0.3s ease;
+}
+
+.inicio button:hover { transform: scale(1.03); }
+
+.filter select:hover,
+.inicio button:hover {
+    cursor: pointer;
+    background: var(--blue);
+    border-color: var(--white);
+    color: var(--white);
+    outline: none;
+}

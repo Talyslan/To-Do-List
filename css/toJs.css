@@ -1,0 +1,9 @@
+.risk { 
+    text-decoration: line-through; 
+}
+
+.disappear {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}

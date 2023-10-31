@@ -6,6 +6,7 @@
 
 :root {
     --black:#313132;
+    --black-texts:#1a1a1a;
     --white: #FFFFFC;
     --purple: #AA46FF;
     --red: #F87C8F;
@@ -14,13 +15,13 @@
     --cinza: #58585a;
 }
 
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: #dad7d7; }
+
 body, button, input, select {
     font-family: 'Rubik', sans-serif;
     border: none;
 }
-
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-thumb { background: #dad7d7; }
 
 body {
     background: var(--purple);
@@ -28,12 +29,15 @@ body {
     height: 100vh;
 }
 
-main { height: 80vh; justify-content: center; }
+header { background: var(--black); width: 100%; }
 
-input { border-radius: 3px; }
-input[type="checkbox"] { width: 18px; height: 18px;}
-input[type="checkbox"]:hover { cursor: pointer; }
-input[type="checkbox"]:active { transform: scale(1.1); }
+header h1 {
+    padding: 12px 0;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+main { height: 80vh; justify-content: center; }
 
 footer span {
     text-align: center;
@@ -42,5 +46,40 @@ footer span {
     opacity: .6;
 }
 
-/* Claasses para JS */
-.risk { text-decoration: line-through; }
+select { padding: 8px 4px; border-radius: 4px;}
+button { 
+    padding: 4px 12px; 
+    background: var(--white);
+    border-radius: 6px;
+}
+
+input { border-radius: 3px; }
+input[type="checkbox"] { width: 18px; height: 18px;}
+input[type="checkbox"]:hover { cursor: pointer; }
+input[type="checkbox"]:active { transform: scale(1.1); }
+
+main,
+.card,
+.inicio,
+.box-task,
+.task {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    background: var(--black);
+    gap: 2em;
+    padding: 1em;
+    border-radius: 8px;;
+    height: 90%;
+    width: 85%;
+    max-width: 650px;
+    box-shadow: 0 4px 8px 0 #00081cb5;
+}
+
+/* .box-task .task, 
+.description-boxTask {
+    background: var(--cinza)
+} */

@@ -1,0 +1,44 @@
+.box-task {
+    gap: 16px;
+    overflow-y: auto;
+    padding: 12px;
+    width: 100%;
+}
+
+.box-task .task {
+    background: var(--cinza);
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2em;
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: -3px 4px 12px 0px #00081cb5;
+}
+
+.box-task .task .content p,
+.box-task .task .content span { max-width: 210px; min-width: auto ;}
+
+.box-task .task .content span { 
+    font-size: .8em; 
+    font-style: italic; 
+    filter: opacity(.75);
+    background: var(--red);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.box-task .task > span {
+    background-color: var(--red);
+    padding: .2em;
+    border-radius: 4px;
+    transition: 0.2s ease;
+}
+
+.box-task .task > span:hover {
+    background-color: var(--red-hover);
+    cursor: pointer;
+    transform: scale(1.1); 
+}
+
+.box-task .task > span:active { transform: scale(1); }

@@ -7,36 +7,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="./css/toJs.css">
+    <link rel="stylesheet" href="./css/tasks.css" />
     <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/inicio.css">
+    <link rel="stylesheet" href="./css/configTask.css">
+    <link rel="stylesheet" href="./css/descriptionBoxTask.css">
     <link rel="shortcut icon" href="images/favicon.ico" />
     <title>To Do List</title>
 </head>
 <body>
-    <header>
-        <h1>To-Do List </h1>
-    </header>
+    <header> <h1>To-Do List </h1> </header>
 
     <main>
+        <!-- ORGANIZAR O PENSAMENTO DISSO AQUI -->
+        <div class="config-Task">
+            <h2>Create a task</h2>
+
+            <label for="title">
+                <span>Title Of Your Task</span>
+                <input type="text" placeholder="Write your Title" />
+            </label>
+            
+            <label for="priority">
+                <span>Priority Level:</span>
+                <select id="priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </label>
+
+            <br/>
+
+            <label for="description">
+                <span>Description Of Your Task</span>
+                <br/>
+                <input type="text" placeholder="Write your task description" />
+            </label>
+
+            <br/>
+
+            <span>Do you wanna add tags?</span>
+            <button type="button">Yes</button>
+            <button type="button">No</button>
+            <br/>
+            <label for="tags">
+                <input type="text" placeholder="Write your tag">
+                <button type="button">Add Tag</button>
+            </label>
+
+            <br/>
+
+            <button type="button">Alterate Changes</button>
+            <button type="button">Add Task</button>
+            <button type="button">Delete Task</button>
+            <button type="button">Task Complete</button>
+        </div>
+
         <div class="card">
             <p>To edit your task, click on pencil.</p>
             <div class="inicio">
-                <select onchange="filter.returns(this)">
-                    <option value="all">All</option>
-                    <option value="checks">Checks</option>
-                    <option value="pendents">Pendents</option>
-                </select>
+                <div class="filter">
+                    <span>Filter:</span>
+                    <select onchange="filter.returns(this)">
+                        <option value="all">All</option>
+                        <option value="checks">Checks</option>
+                        <option value="pendents">Pendents</option>
+                    </select>
+                </div>
 
                 <button type="button">Create a task</button>
             </div>
 
-            <!-- ORGANIZAR O PENSAMENTO DISSO AQUI -->
-            <div class="config-Task">
-                <label for="title">
-                    Title Of Your Task
-                    <input type="text" placeholder="Write your Title" />
-                </label>
-            </div>
+            <!-- # | TITLE | STATUS (TODO, COMPLETE, PROCESSING) | EDIT | REMOVE -->
+            <!-- <div class="description-boxTask"></div> -->
 
             <div class="box-task">
                 <div class="task" id="0">

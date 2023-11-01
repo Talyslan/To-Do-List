@@ -7,3 +7,7 @@
     opacity: 0;
     visibility: hidden;
 }
+
+.yesActive { background: var(--green); transform: scale(0.95);}
+
+.noActive { background: var(--red); transform: scale(0.95);}

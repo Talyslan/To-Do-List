@@ -6,7 +6,7 @@ const card = document.querySelector(".card");
 const task_list = [];
 let identify = 0;
 
-const { clearInput, verifyInput } = require("./interface");
+const { clearInput, verifyInput } = require("../interface/interface.js");
 
 // Alteração de valores de um item na Lista de Tasks (task_list)
 const modify = (completedValue, categoryValue, e, action) => {

@@ -20,8 +20,7 @@
     <header> <h1>To-Do List </h1> </header>
     
     <main>
-        <!-- ORGANIZAR O PENSAMENTO DISSO AQUI -->
-        <div class="config-Task">
+        <div class="config-Task disappear">
             <h2>Create a task</h2>
         
             <div class="baixobaixo">
@@ -29,7 +28,7 @@
                     <div class="ladolado">
                         <label for="title">
                             <span>Title Of Your Task</span>
-                            <input type="text" placeholder="Write your Title" />
+                            <input type="text" placeholder="Write your Title" id="title"/>
                         </label>
                 
                         <label for="description">
@@ -38,23 +37,29 @@
                         </label>
 
                         <div class="addTags">
-                            <div class="wannaTag">
+                            <div class="wanna">
                                 <span>Do you wanna add tags?</span>
-                                <button type="button">Yes</button>
-                                <button type="button">No</button>
+                                <button class="btnYes">Yes</button>
+                                <button class="btnNo noActive">No</button>
                             </div>
                 
                             <label for="tags">
-                                <input type="text" placeholder="Write your tag">
-                                <button type="button">Add Tag</button>
+                                <input type="text" placeholder="Write your tag" disabled>
+                                <button disabled>Add Tag</button>
                             </label>
                         </div>
                     </div>
 
                     <div class="ladolado">
+                        <div class="wanna">
+                            <span>Do you wanna priority?</span>
+                            <button class="btnYes">Yes</button>
+                            <button class="btnNo noActive">No</button>
+                        </div>
+
                         <label for="priority">
                             <span>Priority Level:</span>
-                            <select id="priority">
+                            <select id="priority" disabled>
                                 <option value="none" selected>None</option>
                                 <option value="high">High</option>
                                 <option value="medium">Medium</option>
@@ -64,22 +69,23 @@
                 
                         <label for="deadline">
                             <span>Deadline</span>
-                            <input type="date" id="deadline">
+                            <input type="date" id="deadline" disabled>
                         </label>
+
                         <div class="repetetiveTask">
-                            <div class="wannaRepetetiveTask">
+                            <div class="wanna">
                                 <span>Repetetive Task</span>
-                                <button type="button">Yes</button>
-                                <button type="button">No</button>
+                                <button class="btnYes">Yes</button>
+                                <button class="btnNo noActive">No</button>
                             </div>
                             <label for="startDate">
                                 <span>Start Date</span>
-                                <input type="date" id="startDate">
+                                <input type="date" id="startDate" disabled>
                             </label>
                 
                             <label for="frequency">
                                 <span>Frequency</span>
-                                <select id="frequency">
+                                <select id="frequency" disabled>
                                     <option value="daily">Daily</option>
                                     <option value="weekly">Weekly</option>
                                     <option value="monthly">Monthly</option>
@@ -90,10 +96,10 @@
                 </div>
                 
                 <div class="buttonsTask">
-                    <button type="button" class="taskComplete disappear">Task Complete</button>
-                    <button type="button" class="deleteTask disappear">Delete Task</button>
-                    <button type="button" class="alterateTask disappear">Alterate Changes</button>
-                    <button type="button" class="add">Add Task</button>
+                    <button class="taskComplete btnInCTedit disappear">Task Complete</button>
+                    <button class="deleteTask btnInCTedit disappear">Delete Task</button>
+                    <button class="alterateTask btnInCTedit disappear">Alterate Changes</button>
+                    <button class="add">Add Task</button>
                 </div>
             </div>
         </div>
@@ -110,7 +116,7 @@
                     </select>
                 </div>
 
-                <button type="button">Create a task</button>
+                <button id="btnCreate">Create a task</button>
             </div>
 
             <!-- # | TITLE | STATUS (TODO, COMPLETE, PROCESSING) | EDIT | REMOVE -->
@@ -118,7 +124,7 @@
 
             <div class="box-task">
                 <div class="task" id="0">
-                    <input type="checkbox" onclick="activies.checked(this)">
+                    <input type="checkbox">
                     
                     <div class="content">
                         <p contenteditable="true">Titulo da task editavel</p>
@@ -128,11 +134,11 @@
                         <span>#ifal</span>
                     </div>
                     
-                    <span>&#x270E;</span>
+                    <span class="btnEdit">&#x270E;</span>
                 </div>
 
                 <div class="task" id="0">
-                    <input type="checkbox" onclick="activies.checked(this)">
+                    <input type="checkbox">
                     
                     <div class="content">
                         <p contenteditable="true">Titulo da task editavel</p>
@@ -142,7 +148,7 @@
                         <span>#ifal</span>
                     </div>
                     
-                    <span>&#x270E;</span>
+                    <span class="btnEdit">&#x270E;</span>
                 </div>
             </div>
         </div>
@@ -152,6 +158,6 @@
         <span>Created by Talyslan C. P. Canabarro ©</span>
     </footer>
 
-    <!-- <script src="scripts/script.js"></script> -->
+    <script src="./scripts/interface/create&editTask.js"></script>
 </body>
 </html>

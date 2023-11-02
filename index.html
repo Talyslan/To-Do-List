@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/toJs.css">
     <link rel="stylesheet" href="./css/tasks.css" />
-    <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="stylesheet" href="./css/configTask.css">
     <link rel="stylesheet" href="./css/descriptionBoxTask.css">
@@ -39,12 +39,11 @@
                         <div class="addTags">
                             <div class="wanna">
                                 <span>Do you wanna add tags?</span>
-                                <button class="btnYes">Yes</button>
-                                <button class="btnNo noActive">No</button>
+                                <button id="yesTags">Yes</button>
+                                <button id="noTags" class="noActive">No</button>
                             </div>
-                
                             <label for="tags">
-                                <input type="text" placeholder="Write your tag" disabled>
+                                <input type="text" placeholder="Write your tag" id="tags" disabled>
                                 <button disabled>Add Tag</button>
                             </label>
                         </div>
@@ -53,17 +52,16 @@
                     <div class="ladolado">
                         <div class="wanna">
                             <span>Do you wanna priority?</span>
-                            <button class="btnYes">Yes</button>
-                            <button class="btnNo noActive">No</button>
+                            <button id="yesPriority">Yes</button>
+                            <button id="noPriority" class="noActive">No</button>
                         </div>
 
                         <label for="priority">
                             <span>Priority Level:</span>
                             <select id="priority" disabled>
-                                <option value="none" selected>None</option>
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
                                 <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
                             </select>
                         </label>
                 
@@ -75,8 +73,8 @@
                         <div class="repetetiveTask">
                             <div class="wanna">
                                 <span>Repetetive Task</span>
-                                <button class="btnYes">Yes</button>
-                                <button class="btnNo noActive">No</button>
+                                <button id="yesRepetitive">Yes</button>
+                                <button id="noRepetitive" class="noActive">No</button>
                             </div>
                             <label for="startDate">
                                 <span>Start Date</span>
@@ -158,6 +156,6 @@
         <span>Created by Talyslan C. P. Canabarro ©</span>
     </footer>
 
-    <script src="./scripts/interface/create&editTask.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>

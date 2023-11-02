@@ -2,9 +2,9 @@
 const clearInput = (element) => element.value = "";
 
 // Verificação: o input tem algo escrito
-const verify = (element, errorMessage) => {
-    if (element === "") {
-        errorMessage.innerText = "Error! Write something";
+const verifyInput = (element, errorMessage) => {
+  if (element === "") {
+    errorMessage.innerText = "Error! Write something";
     return false;
   }
   else {
@@ -13,5 +13,9 @@ const verify = (element, errorMessage) => {
   }
 };
 
-exports.clearInput = clearInput;
-exports.verify = verifyInput;
+const disappear = (e) => e.classList.add("disappear");
+const appear  = (e) => e.classList.remove("disappear");
+
+export { 
+  appear, disappear, verifyInput, clearInput 
+};

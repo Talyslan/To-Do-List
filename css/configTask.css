@@ -12,7 +12,13 @@
 
 .config-Task h2 { font-size: 3em; margin: .3em; text-align: center;}
 
-.config-Task .optionsToTasks { display: flex; gap: 4em; }
+.baixobaixo { max-height: 550px; }
+
+.config-Task .optionsToTasks { 
+    display: flex; 
+    gap: 4em;
+    overflow-y: auto;
+}
 
 label[for="description"] textarea { width: 100%; height: 100px; }
 
@@ -62,3 +68,11 @@ label[for="deadline"],
 /* Yes's buttons */
 .wanna button:first-of-type:hover 
 { cursor: pointer; background: var(--green); color: var(--white);}
+
+@media only screen and (max-width: 490px) {
+    .config-Task h2 { font-size: 2em; }
+
+    .optionsToTasks { flex-direction: column;  gap: 0;}
+
+    .ladolado { gap: 1em; }
+}

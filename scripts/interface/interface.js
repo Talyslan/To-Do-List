@@ -13,11 +13,9 @@ const verifyInput = (errorMessage, ...element) => {
       errorMessage.innerHTML = "Error! Write something";
       return false;
     }
-    else {
+    else
       errorMessage.innerHTML = "";
-      return true;
-    }
-
+    return true;
 };
 
 // const verifyInput = (errorMessage, ...element) => {
@@ -48,34 +46,21 @@ import { boxTask, boxTags } from "./variables.js";
 
 const addTaskInTheBox = (textTask) => {
   boxTask.innerHTML += 
-  ` <div class="task">
-  <input type="checkbox">
+  `<div class="task">
+    <input type="checkbox">
   
-  <div class="box-tags">
-  <p contenteditable="true">${textTask}</p>
+    <div class="box-tags">
+    <p contenteditable="true">${textTask}</p>
+    </div>
   
-  </div>
-  
-  <span class="btnEdit">&#x270E;</span>
+    <span class="btnEdit">&#x270E;</span>
   </div>`
 };
 
-const addTaskInTheBoxWithTags = (textTask, ...tags) => {
-  boxTask.innerHTML += 
-  ` <div class="task">
-  <input type="checkbox">
-  
-  <div class="box-tags">
-  <p contenteditable="true">${textTask}</p>
-  <span>${[...tags].join(" ")}</span>
-  </div>
-  
-  <span class="btnEdit">&#x270E;</span>
-  </div>`
-};
-
-const addTagsInTheBox = (tag) => {
-  boxTags.innerHTML += `<span>#${tag}</span>`;
+const addTagsInTheBox = (...tag) => {
+  let tagsList = [...tag];
+  for (const tagText of tagsList)
+    boxTags.innerHTML += `<span>#${tagText}</span>`;
 }
 
-export { addTaskInTheBox, addTagsInTheBox, addTaskInTheBoxWithTags };
+export { addTaskInTheBox, addTagsInTheBox };

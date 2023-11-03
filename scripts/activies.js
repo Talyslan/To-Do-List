@@ -1,6 +1,11 @@
 import { closeCT } from './interface/configTask/configTask.js';
-import { verifyInput, takeValues, addTaskInTheBox, addTagsInTheBox, addTaskInTheBoxWithTags } from "./interface/interface.js";
+import { isTag } from './interface/configTask/yes&no.js';
+import { edit_btnPencilAll } from './interface/variables.js'
 import { verifyWhatClass } from './funcionalityJS.js';
+import { 
+    verifyInput, takeValues, 
+    addTaskInTheBox
+} from "./interface/interface.js";
 import { 
     errorMessage,
     title, description,
@@ -15,8 +20,6 @@ import {
     Repetitive_Tags,
     AllTask
 } from './classesTask.js';
-import { isTag } from './interface/configTask/yes&no.js';
-import { edit_btnPencilAll } from './interface/variables.js'
 
 //Para os botões de Add Task, Alterate Task, Remove Task e Complete Task
 let list = [];
@@ -129,7 +132,9 @@ const addTask = () => {
             console.log("não entrou em nada, rpz");
             break;
     }
-    
+    console.log(isTag)
+    console.log(task)
+    console.log(list)
     if (isTag)
         for (const i of list)
             task.addTag(i);

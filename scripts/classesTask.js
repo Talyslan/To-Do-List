@@ -25,6 +25,7 @@ class Task {
     completedTask() {
         this._completed = true;
     };
+
 };
 
 // Classe Prioridade da tarefa

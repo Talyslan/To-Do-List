@@ -1,10 +1,19 @@
+const createTask_btn = document.querySelector("#btnCreate");
+
+import { openCTedit } from "./configTask/configTask.js";
+const edit_btnPencilAll = () => {
+    let edit_btnPencil = document.querySelectorAll(".btnEdit");
+    for (const edit of edit_btnPencil)
+        edit.addEventListener("click", openCTedit);
+}
+
+export { createTask_btn, edit_btnPencilAll };
+
+const boxTask = document.querySelector(".box-task");
+const boxTags = document.querySelector(".box-tags")
 const errorMessage = document.querySelector("#errorMessage");
-export { errorMessage };
 
-const title = document.querySelector("#title");
-const description = document.querySelector("#description");
-
-export { title, description };
+export { boxTask, boxTags, errorMessage };
 
 // Config Task
 const configTask = document.querySelector(".config-Task");
@@ -28,7 +37,12 @@ export {
     buttonsCTedit
 }; 
 
-// Botões de Yes e No
+// Title and Description from Config Task
+const title = document.querySelector("#title");
+const description = document.querySelector("#description");
+
+export { title, description };
+
 // For Tags Task
 const yesTags = document.querySelector("#yesTags");
 const noTags = document.querySelector("#noTags");
@@ -52,7 +66,3 @@ const startDate = document.querySelector("#startDate");
 const frequencyPriority = document.querySelector("#frequency");
 
 export { yesRepetitive, noRepetitive, startDate, frequencyPriority };
-
-const boxTask = document.querySelector(".box-task");
-const boxTags = document.querySelector(".box-tags")
-export { boxTask, boxTags };

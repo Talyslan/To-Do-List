@@ -19,6 +19,7 @@ class Task {
       this._text = text;
       this._description = description;
       this._completed = false;
+      this._id = undefined;
     };
 
     completedTask() {

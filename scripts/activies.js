@@ -16,7 +16,7 @@ import {
     AllTask
 } from './classesTask.js';
 import { isTag } from './interface/configTask/yes&no.js';
-
+import { edit_btnPencilAll } from './interface/variables.js'
 
 //Para os botões de Add Task, Alterate Task, Remove Task e Complete Task
 let list = [];
@@ -139,19 +139,26 @@ const addTask = () => {
     else
         addTaskInTheBox(takeValues(title));
 
+    edit_btnPencilAll();
     closeCT();
 }
 
 const alterateTask = () => {
-    
+
+    edit_btnPencilAll();
+    closeCT();
 }
 
 const removeTask = () => {
 
+    edit_btnPencilAll();
+    closeCT();
 }
 
 const completeTask = () => {
-
+    
+    edit_btnPencilAll();
+    closeCT();
 }
 
 export { addTask, alterateTask, removeTask, completeTask };

@@ -16,10 +16,10 @@
     box-shadow: -3px 4px 12px 0px #00081cb5;
 }
 
-.box-task .task .content p,
-.box-task .task .content span { max-width: 210px; min-width: auto ;}
+.box-task .task .box-tags p,
+.box-task .task .box-tags span { max-width: 210px; min-width: auto ;}
 
-.box-task .task .content span { 
+.box-task .task .box-tags span { 
     font-size: .8em; 
     font-style: italic; 
     filter: opacity(.75);

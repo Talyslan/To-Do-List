@@ -1,21 +1,67 @@
 //Limpa o input
-const clearInput = (element) => element.value = "";
+const clearInput = (...element) => {
+  const elementsList = [...element];
+  elementsList.forEach(e => e.value = "");
+}
 
 // Verificação: o input tem algo escrito
-const verifyInput = (element, errorMessage) => {
-  if (element === "") {
-    errorMessage.innerText = "Error! Write something";
-    return false;
-  }
-  else {
-    errorMessage.innerText = "";
-    return true;
-  }
+const verifyInput = (errorMessage, ...element) => {
+  const listElements = [...element];
+
+  for (const e of listElements)
+    if (e.value === "") {
+      errorMessage.innerHTML = "Error! Write something";
+      return false;
+    }
+    else {
+      errorMessage.innerHTML = "";
+      return true;
+    }
+
 };
+
+// const verifyInput = (errorMessage, ...element) => {
+//   const listElements = [...element];
+
+//   listElements.forEach(e => {
+//     if (e.value === "") {
+//       errorMessage.innerHTML = "Error! Write something";
+//       return false;
+//     }
+//     else {
+//       errorMessage.innerHTML = "";
+//     }
+//   });
+
+//   return true;
+// };
+
+const takeValues = (element) => element.value;
 
 const disappear = (e) => e.classList.add("disappear");
 const appear  = (e) => e.classList.remove("disappear");
 
-export { 
-  appear, disappear, verifyInput, clearInput 
+export { appear, disappear, verifyInput, clearInput, takeValues };
+
+import { boxTask, boxTags } from "./variables.js";
+
+
+const addTaskInTheBox = (textTask) => {
+  boxTask.innerHTML += 
+  ` <div class="task">
+  <input type="checkbox">
+  
+  <div class="box-tags">
+  <p contenteditable="true">${textTask}</p>
+  
+  </div>
+  
+  <span class="btnEdit">&#x270E;</span>
+  </div>`
 };
+
+const addTagsInTheBox = (tag) => {
+  boxTags.innerHTML += `<span>#${tag}</span>`;
+}
+
+export { addTaskInTheBox, addTagsInTheBox };

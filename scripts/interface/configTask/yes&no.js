@@ -1,10 +1,13 @@
 //Funções para liberar ou desabilitar campos
+//eYes => o elemento botao Yes
+//eNo => o elemento botao No
+//elementsDisabled e elementsToDisable são os elementos disabilitados e para desabilitar, respectivamente
 const baseYesActive = (eYes, eNo, ...elementsDisabled) => {
     if (!eYes.classList.contains("yesActive")) {
         eYes.classList.add("yesActive");
         eNo.classList.remove("noActive");
         elementsDisabled.forEach(e => e.removeAttribute("disabled"));
-    };
+    }
 };
 
 const baseNoActive = (eYes, eNo, ...elementsToDisable) => {
@@ -18,31 +21,47 @@ const baseNoActive = (eYes, eNo, ...elementsToDisable) => {
 export { baseYesActive, baseNoActive };
 
 // For Tags Task
-const yesTags = document.querySelector("#yesTags");
-const noTags = document.querySelector("#noTags");
-const inputTags = document.querySelector("#tags");
-const buttonTags = inputTags.parentNode.children[1];
+import { 
+    yesTags, noTags, inputTags, buttonTags,
+    yesPriority, noPriority, selectPriority, deadlinePriority,
+    yesRepetitive, noRepetitive, startDate, frequencyPriority
+} from '../variables.js';
 
-const yesTagsActive = () => baseYesActive(yesTags, noTags, inputTags, buttonTags);
-const noTagActive = () => baseNoActive(yesTags, noTags, inputTags, buttonTags);
+let isTag = false;
+let isRepetitive = false; 
+let isPriority = false;
+
+// For Tags of Task
+const yesTagsActive = () => {
+    baseYesActive(yesTags, noTags, inputTags, buttonTags);
+    isTag = true;
+};
+const noTagActive = () => {
+    baseNoActive(yesTags, noTags, inputTags, buttonTags);
+    isTag = false;
+};
 
 // For Priority Task
-const yesPriority = document.querySelector("#yesPriority");
-const noPriority = document.querySelector("#noPriority");
-const selectPriority = document.querySelector("#priority");
-const deadlinePriority = document.querySelector("#deadline");
-
-const yesPriorityActive = () => baseYesActive(yesPriority, noPriority, selectPriority, deadlinePriority);
-const noPriorityActive = () => baseNoActive(yesPriority, noPriority, selectPriority, deadlinePriority);
+const yesPriorityActive = () => {
+    baseYesActive(yesPriority, noPriority, selectPriority, deadlinePriority);
+    isPriority = true;
+};
+const noPriorityActive = () => {
+    baseNoActive(yesPriority, noPriority, selectPriority, deadlinePriority);
+    isRepetitive = false;
+}
 
 // For Repetitive Task
-const yesRepetitive = document.querySelector("#yesRepetitive");
-const noRepetitive = document.querySelector("#noRepetitive");
-const startDate = document.querySelector("#startDate");
-const frequencyPriority = document.querySelector("#frequency");
+const yesRepetitiveActive = () => {
+    baseYesActive(yesRepetitive, noRepetitive, startDate, frequencyPriority);
+    isRepetitive = true;
+}
+const noRepetitiveActive = () => {
+    baseNoActive(yesRepetitive, noRepetitive, startDate, frequencyPriority);
+    isRepetitive = false;
+}
 
-const yesRepetitiveActive = () => baseYesActive(yesRepetitive, noRepetitive, startDate, frequencyPriority);
-const noRepetitiveActive = () => baseNoActive(yesRepetitive, noRepetitive, startDate, frequencyPriority);
+export { isTag, isRepetitive, isPriority };
 
 // Variáveis
 export { 

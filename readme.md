@@ -33,3 +33,5 @@ Sim, há um problema na hora da filtração de tarefas, especificamente no filtr
 - Consulta no <strong>StackOverflow</strong>: (<a href="https://pt.stackoverflow.com/questions/441373/como-remover-todos-os-elementos-de-uma-div-em-javascript" target="_blank">https://pt.stackoverflow.com/questions/441373/como-remover-todos-os-elementos-de-uma-div-em-javascript</a>) para destruir um elemento HTML com JavaScript.
 
 - Site: <strong>MDN Web Docs</strong> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event</a>) para utilização do "value" pegado da tag "select".
+
+- Vídeo: <strong>Modularizar o código import e export</strong> (<a href="https://www.youtube.com/watch?v=RMK5WdPGWDU&t=93s">https://www.youtube.com/watch?v=RMK5WdPGWDU&t=93s</a>) para utilizar import e export no contexto da web.

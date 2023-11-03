@@ -1,34 +1,32 @@
 import { appear, disappear } from "../interface.js"
 
-const configTaskArea = document.querySelector(".config-Task");
-// Botões da Config Task: 
-const btnsCTedit = document.querySelectorAll(".btnInCTedit");
-const addCTcreate = document.querySelector(".add");
+import {
+    configTask,
+    add_CTcreateBtn,
+    buttonsCTedit
+} from '../variables.js';
 
-const closeCT = () => disappear(configTaskArea);
+const closeCT = () => disappear(configTask);
 
 const openCTcreate = () => {
-    appear(configTaskArea);
+    appear(configTask);
 
-    if (addCTcreate.classList.contains("disappear"))
-        appear(addCTcreate);
+    if (add_CTcreateBtn.classList.contains("disappear"))
+        appear(add_CTcreateBtn);
 
-    btnsCTedit.forEach(item => disappear(item));
+    buttonsCTedit.forEach(item => disappear(item));
 };
 
 const openCTedit = () => {
-    appear(configTaskArea);
-    // Tirar o btn Add e adicionar os outros
-    disappear(addCTcreate);
+    appear(configTask);
 
-    for (const item of btnsCTedit)
+    disappear(add_CTcreateBtn);
+
+    buttonsCTedit.forEach(item => {
         if (item.classList.contains("disappear"))
             appear(item);
+    });
 };
 
-// Variáveis
-export { configTaskArea, btnsCTedit, addCTcreate };
 // Funções
 export { closeCT, openCTcreate, openCTedit };
-
-// 

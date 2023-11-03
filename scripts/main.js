@@ -1,24 +1,42 @@
-// Variáveis e funções
-import { addCTcreate, btnsCTedit } from './interface/configTask/configTask.js';
-import { closeCT, openCTcreate, openCTedit } from './interface/configTask/configTask.js';
+// Functions
+import {  
+    closeCT,
+    openCTcreate, 
+    openCTedit 
+} from './interface/configTask/configTask.js';
 
-// Botão "Create a task" e Edit do lado das tasks
-const btnCardCreate = document.querySelector("#btnCreate");
-const btnsCardEdit = document.querySelectorAll(".btnEdit");
+import { 
+    add_CTcreateBtn,
+    taskComplete_CTeditBtn,
+    deleteTask_CTeditBtn,
+    alterateTask_CTeditBtn
+} from './interface/variables.js';
 
-btnCardCreate.addEventListener("click", openCTcreate);
-addCTcreate.addEventListener("click", closeCT);
-btnsCTedit[2].addEventListener("click", closeCT); 
-for (const edit of btnsCardEdit)
+// Funções
+import {
+    addTask
+} from './activies.js';
+
+// Fechar a Config Task a partir da ação 
+add_CTcreateBtn.addEventListener("click", addTask);
+taskComplete_CTeditBtn.addEventListener("click", closeCT); 
+deleteTask_CTeditBtn.addEventListener("click", closeCT);
+alterateTask_CTeditBtn.addEventListener("click", closeCT)
+
+// abrir a Config Task Botão "Create a task" e Edits do lado das tasks
+import { createTask_btn, edit_btnPencil } from './interface/variables.js';
+
+createTask_btn.addEventListener("click", openCTcreate);
+for (const edit of edit_btnPencil)
     edit.addEventListener("click", openCTedit);
 
-// Sim e Não da Config Task
-// Variáveis
+//======== Sim e Não da Config Task ========
 import { 
     yesTags, noTags, 
     yesPriority, noPriority, 
     yesRepetitive, noRepetitive 
-} from './interface/configTask/yes&no.js';
+} from './interface/variables.js';
+
 // Funções
 import { 
     yesTagsActive, noTagActive,
@@ -35,3 +53,8 @@ noPriority.addEventListener("click", noPriorityActive)
 // For Repetitive Task
 yesRepetitive.addEventListener("click", yesRepetitiveActive);
 noRepetitive.addEventListener("click", noRepetitiveActive)
+
+// Adicionar tags
+import { buttonTags } from './interface/variables.js';
+import { addTagInTheList } from './activies.js';
+buttonTags.addEventListener("click", addTagInTheList)

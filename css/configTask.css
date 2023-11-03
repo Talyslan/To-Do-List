@@ -12,7 +12,7 @@
 
 .config-Task h2 { font-size: 3em; margin: .3em; text-align: center;}
 
-.baixobaixo { max-height: 550px; }
+.baixobaixo { max-height: 700px; }
 
 .config-Task .optionsToTasks { 
     display: flex; 

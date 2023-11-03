@@ -24,12 +24,10 @@ deleteTask_CTeditBtn.addEventListener("click", closeCT);
 alterateTask_CTeditBtn.addEventListener("click", closeCT)
 
 // Botões da tela inicial "Create a Task" e os ícones do lápis
-const createTask_btn = document.querySelector("#btnCreate");
-let edit_btnPencil = document.querySelectorAll(".btnEdit");
+import { createTask_btn, edit_btnPencilAll } from './scripts/interface/variables.js'
 
 createTask_btn.addEventListener("click", openCTcreate);
-for (const edit of edit_btnPencil)
-    edit.addEventListener("click", openCTedit);
+edit_btnPencilAll();
 
 //======== Sim e Não da Config Task ========
 import { 

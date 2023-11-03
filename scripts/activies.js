@@ -1,5 +1,5 @@
 import { closeCT } from './interface/configTask/configTask.js';
-import { verifyInput, takeValues, addTaskInTheBox, addTagsInTheBox } from "./interface/interface.js";
+import { verifyInput, takeValues, addTaskInTheBox, addTagsInTheBox, addTaskInTheBoxWithTags } from "./interface/interface.js";
 import { verifyWhatClass } from './funcionalityJS.js';
 import { 
     errorMessage,
@@ -47,8 +47,7 @@ const addTask = () => {
             if (resultVerifyInput) {
                 task = new AllTask ( 
                     takeValues(title), takeValues(description), takeValues(selectPriority),
-                    takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate)
-                );
+                    takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate), ...list);
                 taskList.addTask(task);
             }
             break;
@@ -57,7 +56,7 @@ const addTask = () => {
                                             inputTags, buttonTags); 
 
             if (resultVerifyInput) {
-                task = new TagsTask (takeValues(title), takeValues(description)); 
+                task = new TagsTask (takeValues(title), takeValues(description), ...list); 
                 taskList.addTask(task);
             }
             break;
@@ -95,8 +94,7 @@ const addTask = () => {
             if (resultVerifyInput) {
                 task = new Repetitive_Tags(
                     takeValues(title), takeValues(description), 
-                    takeValues(frequencyPriority), takeValues(startDate)
-                ); 
+                    takeValues(frequencyPriority), takeValues(startDate), ...list); 
                 taskList.addTask(task);
             }
             break;
@@ -123,8 +121,7 @@ const addTask = () => {
             if (resultVerifyInput) {
                 task = new Priority_Tags(
                     takeValues(title), takeValues(description), 
-                    takeValues(selectPriority), takeValues(deadlinePriority)
-                );
+                    takeValues(selectPriority), takeValues(deadlinePriority), ...list);
                 taskList.addTask(task);
             }
             break;
@@ -132,14 +129,15 @@ const addTask = () => {
             console.log("não entrou em nada, rpz");
             break;
     }
-
-    addTaskInTheBox(takeValues(title));
+    
+    if (isTag)
+        for (const i of list)
+            task.addTag(i);
 
     if (isTag)
-        for (const i of list) {
-            task.addTag(i);
-            addTagsInTheBox(i);
-        }
+        addTaskInTheBoxWithTags(takeValues(title), ...list)
+    else
+        addTaskInTheBox(takeValues(title));
 
     closeCT();
 }

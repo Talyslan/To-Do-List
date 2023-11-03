@@ -28,12 +28,6 @@ export {
     buttonsCTedit
 }; 
 
-// Botões da tela inicial "Create a Task" e os ícones do lápis
-const createTask_btn = document.querySelector("#btnCreate");
-const edit_btnPencil = document.querySelectorAll(".btnEdit");
-
-export { createTask_btn, edit_btnPencil};
-
 // Botões de Yes e No
 // For Tags Task
 const yesTags = document.querySelector("#yesTags");

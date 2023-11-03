@@ -46,9 +46,9 @@ class RepetitiveTask extends Task {
 
 // Classe da lista de Tags associada a uma tarefa
 class TagsTask extends Task {
-    constructor(text, description) {
+    constructor(text, description, ...tags) {
         super(text, description);
-        this._tagsList = []
+        this._tagsList = [...tags]
     };
 
     addTag(tag) {
@@ -62,9 +62,9 @@ class TagsTask extends Task {
 
 // Classe Prioridade e tags juntas
 class Priority_Tags extends PriorityTask {
-    constructor (text, description, priorityLevel, deadline) {
+    constructor (text, description, priorityLevel, deadline, ...tags) {
         super(text, description, priorityLevel, deadline);
-        this._tagsList = []
+        this._tagsList = [...tags]
     }
 
     addTag(tag) {
@@ -83,9 +83,9 @@ class Priority_Repetitive extends PriorityTask {
 
 // Classe Tags e Repetitive juntas
 class Repetitive_Tags extends RepetitiveTask {
-    constructor(text, description, frequency, startDate) {
+    constructor(text, description, frequency, startDate, ...tags) {
         super(text, description, frequency, startDate);
-        this._tagsList = []
+        this._tagsList = [...tags]
     };
 
     addTag(tag) {
@@ -94,9 +94,9 @@ class Repetitive_Tags extends RepetitiveTask {
 }
 
 class AllTask extends Priority_Repetitive {
-    constructor(text, description, priorityLevel, deadline, frequency, startDate) {
+    constructor(text, description, priorityLevel, deadline, frequency, startDate, ...tags) {
         super(text, description, priorityLevel, deadline, frequency, startDate);
-        this._tagsList = []
+        this._tagsList = [...tags]
     };
 
     addTag(tag) {

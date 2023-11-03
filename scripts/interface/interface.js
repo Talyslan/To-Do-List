@@ -60,8 +60,22 @@ const addTaskInTheBox = (textTask) => {
   </div>`
 };
 
+const addTaskInTheBoxWithTags = (textTask, ...tags) => {
+  boxTask.innerHTML += 
+  ` <div class="task">
+  <input type="checkbox">
+  
+  <div class="box-tags">
+  <p contenteditable="true">${textTask}</p>
+  <span>${[...tags].join(" ")}</span>
+  </div>
+  
+  <span class="btnEdit">&#x270E;</span>
+  </div>`
+};
+
 const addTagsInTheBox = (tag) => {
   boxTags.innerHTML += `<span>#${tag}</span>`;
 }
 
-export { addTaskInTheBox, addTagsInTheBox };
+export { addTaskInTheBox, addTagsInTheBox, addTaskInTheBoxWithTags };

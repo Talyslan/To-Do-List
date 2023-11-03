@@ -13,9 +13,7 @@ import {
 } from './scripts/interface/variables.js';
 
 // Funções
-import {
-    addTask
-} from './scripts/activies.js';
+import { addTask } from './scripts/activies.js';
 
 // Fechar a Config Task a partir da ação 
 add_CTcreateBtn.addEventListener("click", addTask);
@@ -55,5 +53,5 @@ noRepetitive.addEventListener("click", noRepetitiveActive)
 
 // Adicionar tags
 import { buttonTags } from './scripts/interface/variables.js';
-import { addTagInTheList } from './scripts/activies.js';
+import { addTagInTheList } from './scripts/funcionalityJS.js';
 buttonTags.addEventListener("click", addTagInTheList)

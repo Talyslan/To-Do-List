@@ -1,19 +1,17 @@
 import { closeCT } from './interface/configTask/configTask.js';
 import { isTag } from './interface/configTask/yes&no.js';
 import { edit_btnPencilAll } from './interface/variables.js'
-import { verifyWhatClass } from './funcionalityJS.js';
+import { verifyWhatClass, list } from './funcionalityJS.js';
 import { 
     verifyInput, takeValues, 
-    addTaskInTheBox
+    addTaskInTheBox, addTagsInTheBox
 } from "./interface/interface.js";
 import { 
     errorMessage,
     title, description,
-    inputTags, buttonTags,
     selectPriority, deadlinePriority,
     startDate, frequencyPriority
 } from './interface/variables.js'
-
 import {
     TaskList, Task, PriorityTask, RepetitiveTask, 
     TagsTask, Priority_Tags, Priority_Repetitive,
@@ -22,130 +20,117 @@ import {
 } from './classesTask.js';
 
 //Para os botões de Add Task, Alterate Task, Remove Task e Complete Task
-let list = [];
-const addTagInTheList = () => list.push(takeValues(inputTags));
-export {addTagInTheList};
-
 let taskList = new TaskList();
-let task = undefined;
-let resultVerifyInput = undefined;
 
 const addTask = () => {
     const classResult = verifyWhatClass();
-
+    console.log(classResult)
+    let resultVerifyInput = undefined;
+    let task = undefined;
+    
     switch(classResult) {
         case 'Task':
             resultVerifyInput = verifyInput(errorMessage, title, description); 
-
-            if (resultVerifyInput) {
-                task = new Task(takeValues(title), takeValues(description)); 
-                taskList.addTask(task);
-            }
+            if (resultVerifyInput)
+                task = new Task(takeValues(title), takeValues(description));
+        
             break;
         case 'AllTask':
-            resultVerifyInput = verifyInput(errorMessage, title, description, inputTags, 
-                                buttonTags, selectPriority, deadlinePriority, 
-                                startDate, frequencyPriority);
-
-            if (resultVerifyInput) {
+            resultVerifyInput = verifyInput(errorMessage, title, description,
+                                            selectPriority, deadlinePriority, 
+                                            startDate, frequencyPriority);
+            if (resultVerifyInput)
                 task = new AllTask ( 
                     takeValues(title), takeValues(description), takeValues(selectPriority),
-                    takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate), ...list);
-                taskList.addTask(task);
-            }
+                    takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate));
+        
             break;
         case 'TagsTask':
-            resultVerifyInput = verifyInput(errorMessage ,title, description, 
-                                            inputTags, buttonTags); 
-
-            if (resultVerifyInput) {
-                task = new TagsTask (takeValues(title), takeValues(description), ...list); 
-                taskList.addTask(task);
-            }
+            resultVerifyInput = verifyInput(errorMessage, title, description); 
+            console.log("verify dos inputs" + resultVerifyInput)
+            if (resultVerifyInput)
+                task = new TagsTask (takeValues(title), takeValues(description)); 
+        
             break;
         case 'RepetitiveTask': 
             resultVerifyInput = verifyInput(errorMessage, title, description, 
                                             startDate, frequencyPriority);
-
-            if (resultVerifyInput) {
+            if (resultVerifyInput)
                 task = new RepetitiveTask (
                     takeValues(title), takeValues(description),
                     takeValues(frequencyPriority), takeValues(startDate)
                 ); 
-                taskList.addTask(task);
-            }
+    
             break;
         case 'PriorityTask': 
             resultVerifyInput = verifyInput(errorMessage, title, 
                                             description, selectPriority, 
                                             deadlinePriority); 
-
-            if (resultVerifyInput) {
+            if (resultVerifyInput)
                 task = new PriorityTask(
                     takeValues(title), takeValues(description), 
                     takeValues(selectPriority), takeValues(deadlinePriority)
                 ); 
-                taskList.addTask(task);
-            }
+
             break;
         case 'Repetitive_Tags': 
             resultVerifyInput = verifyInput(errorMessage, title, 
                                             description, startDate, 
-                                            frequencyPriority, inputTags, 
-                                            buttonTags);
-
-            if (resultVerifyInput) {
+                                            frequencyPriority);
+            if (resultVerifyInput)
                 task = new Repetitive_Tags(
                     takeValues(title), takeValues(description), 
-                    takeValues(frequencyPriority), takeValues(startDate), ...list); 
-                taskList.addTask(task);
-            }
+                    takeValues(frequencyPriority), takeValues(startDate)); 
+    
             break;
             //title, description, selectPriority, deadlinePriority, inputTags, buttonTags
         case 'Priority_Repetitive': 
             resultVerifyInput = verifyInput(errorMessage, title, description,
-                                         selectPriority, deadlinePriority, startDate, 
-                                         frequencyPriority);
-
-            if (resultVerifyInput) {
+                                            selectPriority, deadlinePriority, startDate, 
+                                            frequencyPriority);
+            if (resultVerifyInput)
                 task = new Priority_Repetitive(
                     takeValues(title), takeValues(description), 
                     takeValues(selectPriority), takeValues(deadlinePriority),
                     takeValues(frequencyPriority), takeValues(startDate)
-                ); 
-                taskList.addTask(task);
-            }
+                );
+
             break;
         case 'Priority_Tags': 
             resultVerifyInput = verifyInput(errorMessage, title, description, 
-                                            selectPriority, deadlinePriority, 
-                                            inputTags, buttonTags)
-
-            if (resultVerifyInput) {
+                                            selectPriority, deadlinePriority);
+            if (resultVerifyInput)
                 task = new Priority_Tags(
                     takeValues(title), takeValues(description), 
-                    takeValues(selectPriority), takeValues(deadlinePriority), ...list);
-                taskList.addTask(task);
-            }
+                    takeValues(selectPriority), takeValues(deadlinePriority));
+
             break;
         default:
             console.log("não entrou em nada, rpz");
             break;
     }
-    console.log(isTag)
-    console.log(task)
-    console.log(list)
-    if (isTag)
+    
+    if (isTag && resultVerifyInput) {
         for (const i of list)
             task.addTag(i);
+            addTagsInTheBox(...list);
+    }
 
-    if (isTag)
-        addTaskInTheBoxWithTags(takeValues(title), ...list)
-    else
-        addTaskInTheBox(takeValues(title));
-
-    edit_btnPencilAll();
-    closeCT();
+    console.log(list)
+    console.log(task)
+    console.log(taskList)
+    
+    // if (isTag)
+    //     addTaskInTheBoxWithTags(takeValues(title), ...list)
+    // else
+    //     addTaskInTheBox(takeValues(title));
+    
+    if (resultVerifyInput) {
+        addTaskInTheBox(task.getTitle(), task.getId());
+        taskList.addTask(task);
+        edit_btnPencilAll();
+        closeCT();
+    } 
 }
 
 const alterateTask = () => {

@@ -57,6 +57,8 @@ button {
 
 button:hover { cursor: pointer; }
 
+button:active { transform: scale(0.95); }
+
 input { padding: 1em; }
 
 input { border-radius: 3px; }

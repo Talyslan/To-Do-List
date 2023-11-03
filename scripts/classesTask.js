@@ -26,6 +26,13 @@ class Task {
         this._completed = true;
     };
 
+    getTitle() {
+        return this._text;
+    };
+
+    getId() {
+        return this._id;
+    };
 };
 
 // Classe Prioridade da tarefa
@@ -48,9 +55,9 @@ class RepetitiveTask extends Task {
 
 // Classe da lista de Tags associada a uma tarefa
 class TagsTask extends Task {
-    constructor(text, description, ...tags) {
+    constructor(text, description) {
         super(text, description);
-        this._tagsList = [...tags]
+        this._tagsList = []
     };
 
     addTag(tag) {
@@ -64,9 +71,9 @@ class TagsTask extends Task {
 
 // Classe Prioridade e tags juntas
 class Priority_Tags extends PriorityTask {
-    constructor (text, description, priorityLevel, deadline, ...tags) {
+    constructor (text, description, priorityLevel, deadline) {
         super(text, description, priorityLevel, deadline);
-        this._tagsList = [...tags]
+        this._tagsList = []
     }
 
     addTag(tag) {
@@ -85,9 +92,9 @@ class Priority_Repetitive extends PriorityTask {
 
 // Classe Tags e Repetitive juntas
 class Repetitive_Tags extends RepetitiveTask {
-    constructor(text, description, frequency, startDate, ...tags) {
+    constructor(text, description, frequency, startDate) {
         super(text, description, frequency, startDate);
-        this._tagsList = [...tags]
+        this._tagsList = []
     };
 
     addTag(tag) {
@@ -96,9 +103,9 @@ class Repetitive_Tags extends RepetitiveTask {
 }
 
 class AllTask extends Priority_Repetitive {
-    constructor(text, description, priorityLevel, deadline, frequency, startDate, ...tags) {
+    constructor(text, description, priorityLevel, deadline, frequency, startDate) {
         super(text, description, priorityLevel, deadline, frequency, startDate);
-        this._tagsList = [...tags]
+        this._tagsList = []
     };
 
     addTag(tag) {

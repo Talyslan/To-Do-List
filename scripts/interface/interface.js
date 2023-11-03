@@ -18,6 +18,7 @@ const verifyInput = (errorMessage, ...element) => {
     return true;
 };
 
+//error de return undefined
 // const verifyInput = (errorMessage, ...element) => {
 //   const listElements = [...element];
 
@@ -43,10 +44,10 @@ export { appear, disappear, verifyInput, clearInput, takeValues };
 
 import { boxTask, boxTags } from "./variables.js";
 
-
-const addTaskInTheBox = (textTask) => {
+// criar um objeto que tera uma propriedade com o numero dos ids e o valor será 
+const addTaskInTheBox = (textTask, id) => {
   boxTask.innerHTML += 
-  `<div class="task">
+  `<div class="task" id="${id}">
     <input type="checkbox">
   
     <div class="box-tags">

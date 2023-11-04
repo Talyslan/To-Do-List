@@ -5,7 +5,9 @@ const clearInput = (...element) => {
 }
 
 // Verificação: o input tem algo escrito
-const verifyInput = (errorMessage, ...element) => {
+import { errorMessage } from "./variables.js";
+
+const verifyInput = (...element) => {
   const listElements = [...element];
 
   for (const e of listElements)
@@ -13,8 +15,8 @@ const verifyInput = (errorMessage, ...element) => {
       errorMessage.innerHTML = "Error! Write something";
       return false;
     }
-    else
-      errorMessage.innerHTML = "";
+    
+    errorMessage.innerHTML = "";
     return true;
 };
 
@@ -42,26 +44,43 @@ const appear  = (e) => e.classList.remove("disappear");
 
 export { appear, disappear, verifyInput, clearInput, takeValues };
 
-import { boxTask, boxTags } from "./variables.js";
+import { boxTask } from "./variables.js";
 
 // criar um objeto que tera uma propriedade com o numero dos ids e o valor será 
 const addTaskInTheBox = (textTask, id) => {
-  boxTask.innerHTML += 
-  `<div class="task" id="${id}">
-    <input type="checkbox">
-  
-    <div class="box-tags">
-    <p contenteditable="true">${textTask}</p>
+  boxTask.innerHTML += `
+    <div class="task" id="${id}">
+      <input type="checkbox">
+    
+      <div class="box-tags">
+        <p contenteditable="true">${textTask}</p>
+      </div>
+    
+      <span class="btnEdit">&#x270E;</span>
     </div>
-  
-    <span class="btnEdit">&#x270E;</span>
-  </div>`
+  `
 };
 
-const addTagsInTheBox = (...tag) => {
+const addTagsInTheBox = (textTask, id, ...tag) => {
   let tagsList = [...tag];
-  for (const tagText of tagsList)
-    boxTags.innerHTML += `<span>#${tagText}</span>`;
+  let tagsList_withSpan = [];
+
+  tagsList.forEach(t => tagsList_withSpan.push(`<span>#${tagText}</span>`));
+
+  boxTask.innerHTML += `
+    <div class="task" id="${id}">
+      <input type="checkbox">
+
+      <div class="box-tags">
+        <p contenteditable="true">${textTask}</p>
+        ${tagsList_withSpan.join(" ")}
+      </div>
+
+      <span class="btnEdit">&#x270E;</span>
+    </div>
+  `;
 }
 
 export { addTaskInTheBox, addTagsInTheBox };
+
+// const resetCT = () => {};

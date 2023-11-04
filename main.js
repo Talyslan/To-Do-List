@@ -1,28 +1,22 @@
-// Functions
-import {  
-    closeCT,
-    openCTcreate, 
-    openCTedit 
-} from './scripts/interface/configTask/configTask.js';
-
+// ======== Config Task BUTTONS ========
 import { 
-    add_CTcreateBtn,
-    taskComplete_CTeditBtn,
-    deleteTask_CTeditBtn,
-    alterateTask_CTeditBtn
+    add_CTcreateBtn, taskComplete_CTeditBtn,
+    deleteTask_CTeditBtn, alterateTask_CTeditBtn
 } from './scripts/interface/variables.js';
 
-// Funções
-import { addTask } from './scripts/activies.js';
+// Functions
+import { addTask, completeTask, removeTask, alterateTask } from './scripts/activies.js';
 
 // Fechar a Config Task a partir da ação 
 add_CTcreateBtn.addEventListener("click", addTask);
-taskComplete_CTeditBtn.addEventListener("click", closeCT); 
-deleteTask_CTeditBtn.addEventListener("click", closeCT);
-alterateTask_CTeditBtn.addEventListener("click", closeCT)
+taskComplete_CTeditBtn.addEventListener("click", completeTask); 
+deleteTask_CTeditBtn.addEventListener("click", removeTask);
+alterateTask_CTeditBtn.addEventListener("click", alterateTask);
 
-// Botões da tela inicial "Create a Task" e os ícones do lápis
+//  ======== Botões da tela inicial "Create a Task" e os ícones do lápis ========
 import { createTask_btn, edit_btnPencilAll } from './scripts/interface/variables.js'
+// Function
+import { openCTcreate } from './scripts/interface/configTask/configTask.js';
 
 createTask_btn.addEventListener("click", openCTcreate);
 edit_btnPencilAll();
@@ -34,7 +28,7 @@ import {
     yesRepetitive, noRepetitive 
 } from './scripts/interface/variables.js';
 
-// Funções
+// Functions
 import { 
     yesTagsActive, noTagActive,
     yesPriorityActive, noPriorityActive,
@@ -51,7 +45,7 @@ noPriority.addEventListener("click", noPriorityActive)
 yesRepetitive.addEventListener("click", yesRepetitiveActive);
 noRepetitive.addEventListener("click", noRepetitiveActive)
 
-// Adicionar tags
+//  ======== Add Tags ========
 import { buttonTags } from './scripts/interface/variables.js';
 import { addTagInTheList } from './scripts/funcionalityJS.js';
 buttonTags.addEventListener("click", addTagInTheList)

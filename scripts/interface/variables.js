@@ -10,10 +10,12 @@ const edit_btnPencilAll = () => {
 export { createTask_btn, edit_btnPencilAll };
 
 const boxTask = document.querySelector(".box-task");
-const boxTags = document.querySelector(".box-tags")
 const errorMessage = document.querySelector("#errorMessage");
+// const boxTagsAll = () => {
+//     return document.querySelectorAll(".box-tags")
+// }
 
-export { boxTask, boxTags, errorMessage };
+export { boxTask, errorMessage };
 
 // Config Task
 const configTask = document.querySelector(".config-Task");

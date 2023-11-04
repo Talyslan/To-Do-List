@@ -22,17 +22,13 @@ class Task {
       this._id = undefined;
     };
 
-    completedTask() {
-        this._completed = true;
-    };
+    completedTask() { this._completed = true; };
 
-    getTitle() {
-        return this._text;
-    };
+    getTitle() { return this._text; };
 
-    getId() {
-        return this._id;
-    };
+    getId() { return this._id; };
+    
+    setId(idValue) { this._id = idValue; };
 };
 
 // Classe Prioridade da tarefa

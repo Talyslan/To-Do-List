@@ -1,5 +1,5 @@
 import { isTag, isPriority, isRepetitive } from './interface/configTask/yes&no.js';
-import { takeValues, clearInput } from './interface/interface.js';
+import { takeValues, clearInput } from './allOfInputs.js';
 import { inputTags } from './interface/variables.js';
 
 const cond = (isTagValue, isRepetitiveValue, isPriorityValue) => {

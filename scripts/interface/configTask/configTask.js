@@ -1,5 +1,6 @@
 import { atualizeActualTask } from "../../atualizeActualTask.js";
-import { appear, clearInput, disappear } from "../interface.js"
+import { appear, disappear } from "../interface.js"
+import { clearInput } from "../../allOfInputs.js";
 import { resetList, verifyWhatClass } from "../../funcionalityJS.js";
 import { resetIsAll } from "./yes&no.js";
 import { title, description, selectPriority, 
@@ -23,13 +24,15 @@ const openCTcreate = () => {
     buttonsCTedit.forEach(item => disappear(item));
 };
 
+let idOfClickedTask = undefined;
+
 const openCTedit = (e) => {
     appear(configTask);
     disappear(add_CTcreateBtn);
 
-    let idActual = e.target.parentNode.id;
+    idOfClickedTask = e.target.parentNode.id;
 
-    atualizeActualTask(idActual);
+    atualizeActualTask(idOfClickedTask);
 
     buttonsCTedit.forEach(item => {
         if (item.classList.contains("disappear"))
@@ -70,4 +73,4 @@ const resetAllTaskCT = () => {
 };
 
 // Funções
-export { closeCT, openCTcreate, openCTedit, resetAllTaskCT };
+export { closeCT, openCTcreate, openCTedit, idOfClickedTask, resetAllTaskCT };

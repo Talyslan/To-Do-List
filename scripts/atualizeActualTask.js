@@ -1,6 +1,5 @@
 import { taskList } from "./activies.js";
-import { putValues } from "./interface/interface.js";
-import { verifyWhatClass } from "./funcionalityJS.js";
+import { putValues } from "./allOfInputs.js";
 import { 
     yesTagsActive, 
     yesPriorityActive, 

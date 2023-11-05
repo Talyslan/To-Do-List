@@ -1,5 +1,6 @@
-import { verifyInput, takeValues } from "./interface/interface.js";
+import { takeValues } from "./allOfInputs.js";
 import { verifyWhatClass } from './funcionalityJS.js';
+import { checkAllInputsOn, resultVerifyInput } from "./allOfInputs.js";
 
 import { 
     title, description, selectPriority, 
@@ -15,67 +16,46 @@ let taskCreated = false;
 
 const createTask_class = () => {
     const classResult = verifyWhatClass();
-    let resultVerifyInput = undefined;
     let task = undefined;
     
+    checkAllInputsOn();
+
     switch(classResult) {
         case 'Task':
-            resultVerifyInput = verifyInput(title, description); 
             if (resultVerifyInput)
                 task = new Task(takeValues(title), takeValues(description));
             break;
-
         case 'AllTask':
-            resultVerifyInput = verifyInput(title, description,
-                                            selectPriority, deadlinePriority, 
-                                            startDate, frequencyPriority);
             if (resultVerifyInput)
                 task = new AllTask ( 
                     takeValues(title), takeValues(description), takeValues(selectPriority),
                     takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate));
             break;
-            
         case 'TagsTask':
-            resultVerifyInput = verifyInput(title, description); 
             if (resultVerifyInput)
                 task = new TagsTask (takeValues(title), takeValues(description)); 
             break;
-
-        case 'RepetitiveTask': 
-            resultVerifyInput = verifyInput(title, description, 
-                                            startDate, frequencyPriority);
+        case 'RepetitiveTask':
             if (resultVerifyInput)
                 task = new RepetitiveTask (
                     takeValues(title), takeValues(description),
                     takeValues(frequencyPriority), takeValues(startDate)
                 ); 
             break;
-
         case 'PriorityTask': 
-            resultVerifyInput = verifyInput(title, 
-                                            description, selectPriority, 
-                                            deadlinePriority); 
             if (resultVerifyInput)
                 task = new PriorityTask(
                     takeValues(title), takeValues(description), 
                     takeValues(selectPriority), takeValues(deadlinePriority)
                 ); 
             break;
-
         case 'Repetitive_Tags': 
-            resultVerifyInput = verifyInput(title, 
-                                            description, startDate, 
-                                            frequencyPriority);
             if (resultVerifyInput)
                 task = new Repetitive_Tags(
                     takeValues(title), takeValues(description), 
                     takeValues(frequencyPriority), takeValues(startDate)); 
             break;
-
         case 'Priority_Repetitive': 
-            resultVerifyInput = verifyInput(title, description,
-                                            selectPriority, deadlinePriority, startDate, 
-                                            frequencyPriority);
             if (resultVerifyInput)
                 task = new Priority_Repetitive(
                     takeValues(title), takeValues(description), 
@@ -83,16 +63,12 @@ const createTask_class = () => {
                     takeValues(frequencyPriority), takeValues(startDate)
                 );
             break;
-
         case 'Priority_Tags': 
-            resultVerifyInput = verifyInput(title, description, 
-                                            selectPriority, deadlinePriority);
             if (resultVerifyInput)
                 task = new Priority_Tags(
                     takeValues(title), takeValues(description), 
                     takeValues(selectPriority), takeValues(deadlinePriority));
             break;
-
         default:
             console.log("não entrou em nada, rpz");
             break;

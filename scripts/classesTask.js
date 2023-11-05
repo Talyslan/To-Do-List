@@ -24,16 +24,16 @@ class Task {
     completedTask() { this._completed = true; };
 
     getId() { return this._id; };
-    
     setId(idValue) { this._id = idValue; };
 
     getClassType() { return this._classType; };
-
     setClassType(className) { this._classType = className; };
 
     getTitle() { return this._title; };
+    setTitle(title) { this._title = title; }
 
     getDescription() { return this._description;};
+    setDescription(description) { this._description = description; };
 };
 
 // Classe Prioridade da tarefa
@@ -45,8 +45,10 @@ class PriorityTask extends Task {
     };
 
     getPriority() { return this._priorityLevel; };
+    setPriority(priority) { this._priorityLevel = priority; }; 
 
     getDeadline() { return this._deadline; };
+    setDeadline(deadline) { this._deadline = deadline; };
 };
 
 // Classe tarefa repetitiva
@@ -58,8 +60,10 @@ class RepetitiveTask extends Task {
     };
 
     getFrequency() { return this._frequency; };
+    setFrequency(frequency) { this._frequency = frequency; };
 
     getStartDate() { return this._startDate; };
+    setStartDate(startDate) { this._startDate = startDate; };
 };
 
 // Classe da lista de Tags associada a uma tarefa
@@ -93,8 +97,10 @@ class Priority_Repetitive extends PriorityTask {
     }
 
     getFrequency() { return this._frequency; };
+    setFrequency(frequency) { this._frequency = frequency; };
 
     getStartDate() { return this._startDate; };
+    setStartDate(startDate) { this._startDate = startDate; };
 }
 
 // Classe Tags e Repetitive juntas

@@ -1,6 +1,7 @@
 const createTask_btn = document.querySelector("#btnCreate");
 
 import { openCTedit } from "./configTask/configTask.js";
+
 const edit_btnPencilAll = () => {
     let edit_btnPencil = document.querySelectorAll(".btnEdit");
     for (const edit of edit_btnPencil)
@@ -11,9 +12,6 @@ export { createTask_btn, edit_btnPencilAll };
 
 const boxTask = document.querySelector(".box-task");
 const errorMessage = document.querySelector("#errorMessage");
-// const boxTagsAll = () => {
-//     return document.querySelectorAll(".box-tags")
-// }
 
 export { boxTask, errorMessage };
 

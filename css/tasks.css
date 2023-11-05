@@ -8,7 +8,7 @@
 .box-task .task {
     background: var(--cinza);
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 2em;
     width: 100%;
     padding: 1em;

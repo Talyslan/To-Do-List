@@ -17,12 +17,15 @@ const verifyWhatClass = () => {
     else if (cond(true, false, true)) return 'Priority_Tags'
 };
 
-export { cond, verifyWhatClass };
+export { verifyWhatClass };
 
 let list = [];
 const addTagInTheList = () => {
     list.push(takeValues(inputTags));
     clearInput(inputTags);
 };
+
+const resetList = () => list = [];
+
 export { list }
-export { addTagInTheList };
+export { addTagInTheList, resetList };

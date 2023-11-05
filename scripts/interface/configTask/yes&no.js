@@ -1,3 +1,9 @@
+import { 
+    yesTags, noTags, inputTags, buttonTags,
+    yesPriority, noPriority, selectPriority, deadlinePriority,
+    yesRepetitive, noRepetitive, startDate, frequencyPriority
+} from '../variables.js';
+
 //Funções para liberar ou desabilitar campos
 //eYes => o elemento botao Yes
 //eNo => o elemento botao No
@@ -17,15 +23,6 @@ const baseNoActive = (eYes, eNo, ...elementsToDisable) => {
         elementsToDisable.forEach(e => e.setAttribute("disabled", true));
     };
 };
-
-export { baseYesActive, baseNoActive };
-
-// For Tags Task
-import { 
-    yesTags, noTags, inputTags, buttonTags,
-    yesPriority, noPriority, selectPriority, deadlinePriority,
-    yesRepetitive, noRepetitive, startDate, frequencyPriority
-} from '../variables.js';
 
 let isTag = false;
 let isRepetitive = false; 
@@ -48,7 +45,7 @@ const yesPriorityActive = () => {
 };
 const noPriorityActive = () => {
     baseNoActive(yesPriority, noPriority, selectPriority, deadlinePriority);
-    isRepetitive = false;
+    isPriority = false;
 }
 
 // For Repetitive Task
@@ -73,3 +70,11 @@ export {
     yesTagsActive, noTagActive,
     yesPriorityActive, noPriorityActive,
     yesRepetitiveActive, noRepetitiveActive };
+
+const resetIsAll = () => {
+    noRepetitiveActive();
+    noPriorityActive();
+    noTagActive();
+};
+
+export { resetIsAll } ;

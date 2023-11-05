@@ -38,11 +38,11 @@ const verifyInput = (...element) => {
 // };
 
 const takeValues = (element) => element.value;
-
+const putValues = (input, valueOfInput) => input.value = valueOfInput;
 const disappear = (e) => e.classList.add("disappear");
 const appear  = (e) => e.classList.remove("disappear");
 
-export { appear, disappear, verifyInput, clearInput, takeValues };
+export { appear, disappear, verifyInput, clearInput, takeValues, putValues };
 
 import { boxTask } from "./variables.js";
 
@@ -65,7 +65,7 @@ const addTagsInTheBox = (textTask, id, ...tag) => {
   let tagsList = [...tag];
   let tagsList_withSpan = [];
 
-  tagsList.forEach(t => tagsList_withSpan.push(`<span>#${tagText}</span>`));
+  tagsList.forEach(t => tagsList_withSpan.push(`<span>#${t}</span>`));
 
   boxTask.innerHTML += `
     <div class="task" id="${id}">

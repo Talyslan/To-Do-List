@@ -18,6 +18,7 @@ class Task {
       this._description = description;
       this._completed = false;
       this._id = undefined;
+      this._classType = undefined;
     };
 
     completedTask() { this._completed = true; };
@@ -25,6 +26,10 @@ class Task {
     getId() { return this._id; };
     
     setId(idValue) { this._id = idValue; };
+
+    getClassType() { return this._classType; };
+
+    setClassType(className) { this._classType = className; };
 
     getTitle() { return this._title; };
 

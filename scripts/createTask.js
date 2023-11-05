@@ -99,6 +99,7 @@ const createTask_class = () => {
     }
 
     if (resultVerifyInput) {
+        task.setClassType(classResult);
         taskCreated = true;
         return task;
     };

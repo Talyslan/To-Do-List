@@ -1,4 +1,3 @@
-import { openCTedit } from "./interface/configTask/configTask.js";
 import { taskList } from "./activies.js";
 import { putValues } from "./interface/interface.js";
 import { verifyWhatClass } from "./funcionalityJS.js";
@@ -13,9 +12,9 @@ import {
 } from "./interface/variables.js";
 
 const atualizeActualTask = (idActualOfTask) => {
-    const resultClass = verifyWhatClass();
     const actualList = taskList.getList();
     const actualTask = actualList[idActualOfTask];
+    const resultClass = actualTask.getClassType();
 
     switch(resultClass) {
         case 'Task': 
@@ -23,67 +22,67 @@ const atualizeActualTask = (idActualOfTask) => {
             putValues(description, actualTask.getDescription());
             break;
         case 'AllTask': 
+            yesTagsActive();
+            yesPriorityActive();
+            yesRepetitiveActive();
+
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
-
-            yesTagsActive();
-            yesPriorityActive();
-            yesRepetitiveActive();
             break;
         case 'TagsTask': 
+            yesTagsActive();
+            
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
-
-            yesTagsActive();
             break;
         case 'RepetitiveTask': 
+            yesRepetitiveActive();
+            
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
-
-            yesRepetitiveActive();
             break;
         case 'PriorityTask': 
+            yesPriorityActive();
+            
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
-
-            yesPriorityActive();
             break;
         case 'Repetitive_Tags': 
+            yesTagsActive();
+            yesRepetitiveActive();
+            
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
-
-            yesTagsActive();
-            yesRepetitiveActive();
             break;
         case 'Priority_Repetitive': 
+            yesPriorityActive();
+            yesRepetitiveActive();
+
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
-
-            yesPriorityActive();
-            yesRepetitiveActive();
             break;
         case 'Priority_Tags': 
+            yesTagsActive();
+            yesPriorityActive();
+        
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
-
-            yesTagsActive();
-            yesPriorityActive();
             break;
         default:
             console.log("não entrou em nada, rpz");

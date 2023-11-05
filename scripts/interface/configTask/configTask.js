@@ -64,9 +64,9 @@ const clearInputOfCT = () => {
 };
 
 const resetAllTaskCT = () => {
-    resetIsAll();
-    resetList();
     clearInputOfCT();
+    resetList();
+    resetIsAll();
 };
 
 // Funções

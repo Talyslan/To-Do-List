@@ -2,7 +2,7 @@ import { list } from './funcionalityJS.js';
 import { isTag } from './interface/configTask/yes&no.js';
 import { TaskList } from './classesTask.js';
 import { checkAllInputsOn } from './allOfInputs.js';
-import { edit_btnPencilAll } from './interface/variables.js'
+import { boxTask, edit_btnPencilAll } from './interface/variables.js'
 import { addTaskInTheBox, takeTags, addTagsOnExistentTask } from './interface/interface.js';
 import { createTask_class, taskCreated } from './createTask.js';
 import { closeCT, resetAllTaskCT, idOfClickedTask } from './interface/configTask/configTask.js';
@@ -20,7 +20,7 @@ let ids = 0;
 const addTask = () => {
     const task = createTask_class();
 
-    if (taskCreated) {
+    if (taskCreated !== undefined) {
         task.setId(ids);
         ids++;
         taskList.addTask(task);
@@ -39,6 +39,8 @@ const addTask = () => {
         edit_btnPencilAll(); 
         closeCT();
     };
+
+    console.log(taskList.getList())
 };
 
 const alterateTask = () => {
@@ -78,9 +80,14 @@ const alterateTask = () => {
 };
 
 const removeTask = () => {
-    console.log('remove ' + taskCreated)
+    const listOfTask = taskList.getList();
+    const indiceOfTask = listOfTask.indexOf(idOfClickedTask);
+    listOfTask.splice(indiceOfTask, 1);
+
+    boxTask.children[idOfClickedTask].remove();
+
     edit_btnPencilAll();
-    // closeCT();
+    closeCT();
 };
 
 const completeTask = () => {

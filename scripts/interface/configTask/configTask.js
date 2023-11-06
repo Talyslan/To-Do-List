@@ -20,7 +20,6 @@ import {
     inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
     inputsOn_PriorityTags
 } from '../../allOfInputs.js';
-import { taskCreated } from "../../createTask.js";
 
 const closeCT = () => disappear(configTask);
 

@@ -11,3 +11,14 @@
 .yesActive { background: var(--green); transform: scale(0.95);}
 
 .noActive { background: var(--red); transform: scale(0.95);}
+
+/* For complete tasks */
+.completeTask { 
+    background: rgb(120, 243, 120);
+    color: var(--black);
+    font-weight: bold;
+}
+
+.completeTags span { background: var(--white); }
+
+.box-task .task > .completeBtnEdit { background: var(--white); }

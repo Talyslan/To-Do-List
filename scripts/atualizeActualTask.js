@@ -40,7 +40,6 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
-
             break;
         case 'TagsTask': 
             yesTagsActive();
@@ -52,7 +51,6 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             disappear(deadlinePriority);
             disappear(startDate);
             disappear(frequencyPriority);
-
             break;
         case 'RepetitiveTask': 
             yesRepetitiveActive();

@@ -1,6 +1,7 @@
 import { taskList } from "./activies.js";
 import { disappear } from "./interface/interface.js";
 import { putValues, takeValues } from "./allOfInputs.js";
+
 import { 
     yesTagsActive, 
     yesPriorityActive, 
@@ -11,10 +12,17 @@ import {
     deadlinePriority, startDate, frequencyPriority
 } from "./interface/variables.js";
 
+
 const atualizeActualTaskOnCT = (idActualOfTask) => {
     const actualList = taskList.getList();
     const actualTask = actualList[idActualOfTask];
     const resultClass = actualTask.getClassType();
+
+    console.log("=== ATUALIZE ===")
+    console.log(actualList)
+    console.log(actualTask);
+    console.log(resultClass)
+    console.log("=== FIM DO ATUALIZE ===")
 
     switch(resultClass) {
         case 'Task': 
@@ -32,6 +40,7 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
+
             break;
         case 'TagsTask': 
             yesTagsActive();
@@ -43,6 +52,7 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             disappear(deadlinePriority);
             disappear(startDate);
             disappear(frequencyPriority);
+
             break;
         case 'RepetitiveTask': 
             yesRepetitiveActive();
@@ -62,9 +72,6 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
-
-            disappear(selectPriority);
-            disappear(deadlinePriority);
             break;
         case 'Repetitive_Tags': 
             yesTagsActive();
@@ -77,6 +84,7 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
 
             disappear(startDate);
             disappear(frequencyPriority);
+
             
             break;
         case 'Priority_Repetitive': 
@@ -101,6 +109,7 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
 
             disappear(selectPriority);
             disappear(deadlinePriority);
+
             break;
         default:
             console.log("não entrou em nada, rpz");
@@ -128,6 +137,8 @@ const setNewInfo_AllTask = () => {
     taskClicked.setDeadline(takeValues(deadlinePriority));
     taskClicked.setFrequency(takeValues(frequencyPriority));
     taskClicked.setStartDate(takeValues(startDate));
+
+    isTagCreateABoxType();
 };
 
 const setNewInfo_TagsTask = () => {

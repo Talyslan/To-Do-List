@@ -2,7 +2,7 @@ import { atualizeActualTaskOnCT } from "../../atualizeActualTask.js";
 import { appear, disappear } from "../interface.js"
 import { clearInput } from "../../allOfInputs.js";
 import { resetList, verifyWhatClass } from "../../funcionalityJS.js";
-import { resetIsAll } from "./yes&no.js";
+import { isTag, resetIsAll } from "./yes&no.js";
 import { taskList } from "../../activies.js";
 import { 
     title, description, selectPriority, 
@@ -20,12 +20,15 @@ import {
     inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
     inputsOn_PriorityTags
 } from '../../allOfInputs.js';
+import { taskCreated } from "../../createTask.js";
 
 const closeCT = () => disappear(configTask);
 
 const openCTcreate = () => {
     appear(configTask);
-    // inputsOn_AllTask()
+
+    inputsOn_AllTask();
+
     if (add_CTcreateBtn.classList.contains("disappear"))
         appear(add_CTcreateBtn);
 
@@ -33,13 +36,14 @@ const openCTcreate = () => {
 };
 
 let idOfClickedTask = undefined;
-
+let elementClicked = undefined;
 const openCTedit = (e) => {
     appear(configTask);
     disappear(add_CTcreateBtn);
 
-    idOfClickedTask = e.target.parentNode.id;
-
+    elementClicked = e.target.parentNode;
+    idOfClickedTask = elementClicked.id;
+    
     atualizeActualTaskOnCT(idOfClickedTask);
 
     const taskClicked = taskList.getList()[idOfClickedTask]
@@ -106,4 +110,4 @@ const resetAllTaskCT = () => {
 };
 
 // Funções
-export { closeCT, openCTcreate, openCTedit, idOfClickedTask, resetAllTaskCT };
+export { closeCT, openCTcreate, openCTedit, idOfClickedTask, elementClicked, resetAllTaskCT };

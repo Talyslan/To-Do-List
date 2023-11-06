@@ -1,17 +1,11 @@
 import { list } from './funcionalityJS.js';
 import { isTag } from './interface/configTask/yes&no.js';
 import { TaskList } from './classesTask.js';
+import { checkAllInputsOn } from './allOfInputs.js';
 import { edit_btnPencilAll } from './interface/variables.js'
+import { addTaskInTheBox, takeTags, addTagsOnExistentTask } from './interface/interface.js';
 import { createTask_class, taskCreated } from './createTask.js';
-import { addTaskInTheBox, addTagsInTheBox } from './interface/interface.js';
 import { closeCT, resetAllTaskCT, idOfClickedTask } from './interface/configTask/configTask.js';
-import { checkAllInputsOn, resultVerifyInput } from './allOfInputs.js';
-
-import {
-    inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask,
-    inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
-    inputsOn_PriorityTags
-} from './allOfInputs.js';
 
 import { 
     setNewInfo_Task, setNewInfo_AllTask, setNewInfo_TagsTask, setNewInfo_RepetitiveTask,
@@ -30,9 +24,11 @@ const addTask = () => {
         task.setId(ids);
         ids++;
         taskList.addTask(task);
+
         // Adicionar tags nas classes que admitem Tag tanto no HTML quanto no JS
         if (isTag && taskCreated) {
-            addTagsInTheBox(task.getTitle(), task.getId(), ...list);
+            const listOfTags = takeTags(...list)
+            addTaskInTheBox(task.getTitle(), task.getId(), listOfTags);
             list.forEach(i => task.addTag(i));
         }
         else
@@ -46,7 +42,6 @@ const addTask = () => {
 };
 
 const alterateTask = () => {
-    console.log('Alterate ')
     const taskClicked = taskList.getList()[idOfClickedTask];
     const classResult = taskClicked.getClassType();
 
@@ -73,6 +68,9 @@ const alterateTask = () => {
             console.log("não entrou em nada, rpz");
             break;
     }
+
+    if (isTag && taskCreated) 
+        addTagsOnExistentTask(idOfClickedTask);
 
     resetAllTaskCT();
     edit_btnPencilAll();

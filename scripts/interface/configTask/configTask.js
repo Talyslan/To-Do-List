@@ -1,10 +1,12 @@
-import { atualizeActualTask } from "../../atualizeActualTask.js";
+import { atualizeActualTaskOnCT } from "../../atualizeActualTask.js";
 import { appear, disappear } from "../interface.js"
 import { clearInput } from "../../allOfInputs.js";
 import { resetList, verifyWhatClass } from "../../funcionalityJS.js";
 import { resetIsAll } from "./yes&no.js";
-import { title, description, selectPriority, 
-        deadlinePriority, startDate, frequencyPriority 
+import { taskList } from "../../activies.js";
+import { 
+    title, description, selectPriority, 
+    deadlinePriority, startDate, frequencyPriority 
 } from "../variables.js";
 
 import {
@@ -12,6 +14,12 @@ import {
     add_CTcreateBtn,
     buttonsCTedit
 } from '../variables.js';
+
+import { 
+    inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask,
+    inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
+    inputsOn_PriorityTags
+} from '../../allOfInputs.js';
 
 const closeCT = () => disappear(configTask);
 
@@ -32,7 +40,32 @@ const openCTedit = (e) => {
 
     idOfClickedTask = e.target.parentNode.id;
 
-    atualizeActualTask(idOfClickedTask);
+    atualizeActualTaskOnCT(idOfClickedTask);
+
+    const taskClicked = taskList.getList()[idOfClickedTask]
+    const classResult = taskClicked.getClassType();
+
+    switch(classResult) {
+        case 'Task': inputsOn_Task();
+            break;
+        case 'AllTask': inputsOn_AllTask();
+            break;
+        case 'TagsTask': inputsOn_TagsTask();
+            break;
+        case 'RepetitiveTask':  inputsOn_RepetitiveTask();
+            break;
+        case 'PriorityTask': inputsOn_PriorityTask();
+            break;
+        case 'Repetitive_Tags':  inputsOn_RepetitiveTags();
+            break;
+        case 'Priority_Repetitive': inputsOn_PriorityRepetitive();
+            break;
+        case 'Priority_Tags': inputsOn_PriorityTags();
+            break;
+        default:
+            console.log("não entrou em nada, rpz");
+            break;
+    }
 
     buttonsCTedit.forEach(item => {
         if (item.classList.contains("disappear"))

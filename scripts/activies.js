@@ -1,16 +1,27 @@
 import { list } from './funcionalityJS.js';
 import { isTag } from './interface/configTask/yes&no.js';
 import { TaskList } from './classesTask.js';
-import { takeValues } from './allOfInputs.js';
-import { edit_btnPencilAll, title } from './interface/variables.js'
+import { edit_btnPencilAll } from './interface/variables.js'
 import { createTask_class, taskCreated } from './createTask.js';
 import { addTaskInTheBox, addTagsInTheBox } from './interface/interface.js';
-import { closeCT, idOfClickedTask, resetAllTaskCT } from './interface/configTask/configTask.js';
-import { checkAllInputsOn } from './allOfInputs.js';
+import { closeCT, resetAllTaskCT, idOfClickedTask } from './interface/configTask/configTask.js';
+import { checkAllInputsOn, resultVerifyInput } from './allOfInputs.js';
+
+import {
+    inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask,
+    inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
+    inputsOn_PriorityTags
+} from './allOfInputs.js';
+
+import { 
+    setNewInfo_Task, setNewInfo_AllTask, setNewInfo_TagsTask, setNewInfo_RepetitiveTask,
+    setNewInfo_PriorityTask, setNewInfo_RepetitiveTags, setNewInfo_PriorityRepetitive,
+    setNewInfo_PriorityTags
+} from './atualizeActualTask.js';
 
 //Para os botões de Add Task, Alterate Task, Remove Task e Complete Task
 let taskList = new TaskList();
-let ids = 0; //MUDAR AQUI PRA ZERO DEPOIS
+let ids = 0;
 
 const addTask = () => {
     const task = createTask_class();
@@ -37,73 +48,26 @@ const addTask = () => {
 const alterateTask = () => {
     console.log('Alterate ')
     const taskClicked = taskList.getList()[idOfClickedTask];
-    const classResult = taskClicked.getClassName();
+    const classResult = taskClicked.getClassType();
 
     checkAllInputsOn();
 
     switch(classResult) {
-        case 'Task':
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-            }
+        case 'Task': setNewInfo_Task();
             break;
-        case 'AllTask':
-            if (resultVerifyInput)
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setPriority(takeValues(selectPriority));
-                taskClicked.setDeadline(takeValues(deadlinePriority));
-                taskClicked.setFrequency(takeValues(frequencyPriority));
-                taskClicked.setStartDate(takeValues(startDate));
+        case 'AllTask': setNewInfo_AllTask();
             break;
-        case 'TagsTask':
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-            };
+        case 'TagsTask': setNewInfo_TagsTask();
             break;
-        case 'RepetitiveTask': 
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setFrequency(takeValues(frequencyPriority));
-                taskClicked.setStartDate(takeValues(startDate));
-            }
+        case 'RepetitiveTask': setNewInfo_RepetitiveTask();
             break;
-        case 'PriorityTask': 
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setPriority(takeValues(selectPriority));
-                taskClicked.setDeadline(takeValues(deadlinePriority));
-            }
+        case 'PriorityTask': setNewInfo_PriorityTask();
             break;
-        case 'Repetitive_Tags': 
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setFrequency(takeValues(frequencyPriority));
-                taskClicked.setStartDate(takeValues(startDate));
-            }
+        case 'Repetitive_Tags': setNewInfo_RepetitiveTags();
             break;
-        case 'Priority_Repetitive': 
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setPriority(takeValues(selectPriority));
-                taskClicked.setDeadline(takeValues(deadlinePriority));
-                taskClicked.setFrequency(takeValues(frequencyPriority));
-                taskClicked.setStartDate(takeValues(startDate));
-            }
+        case 'Priority_Repetitive': setNewInfo_PriorityRepetitive();
             break;
-        case 'Priority_Tags': 
-            if (resultVerifyInput) {
-                taskClicked.setTitle(takeValues(title));
-                taskClicked.setDescription(takeValues(description));
-                taskClicked.setPriority(takeValues(selectPriority));
-                taskClicked.setDeadline(takeValues(deadlinePriority));
-            };
+        case 'Priority_Tags': setNewInfo_PriorityTags();
             break;
         default:
             console.log("não entrou em nada, rpz");

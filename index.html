@@ -26,12 +26,12 @@
             <div class="baixobaixo">
                 <div class="optionsToTasks">
                     <div class="ladolado">
-                        <label for="title">
+                        <label for="title" class="titleTask">
                             <span>Title Of Your Task</span>
                             <input type="text" placeholder="Write your Title" id="title"/>
                         </label>
                 
-                        <label for="description">
+                        <label for="description" class="descriptionTask">
                             <span>Description Of Your Task</span>
                             <textarea id="description" cols="30" rows="10" placeholder="Write your task description"></textarea>
                         </label>
@@ -50,29 +50,29 @@
                     </div>
 
                     <div class="ladolado">
-                        <div class="wanna">
-                            <span>Do you wanna priority?</span>
-                            <button id="yesPriority">Yes</button>
-                            <button id="noPriority" class="noActive">No</button>
+                        <div class="priorityTask">
+                            <div class="wanna">
+                                <span>Do you wanna priority?</span>
+                                <button id="yesPriority">Yes</button>
+                                <button id="noPriority" class="noActive">No</button>
+                            </div>
+                            <label for="priority">
+                                <span>Priority Level:</span>
+                                <select id="priority" disabled>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </label>
+                            <label for="deadline">
+                                <span>Deadline</span>
+                                <input type="date" id="deadline" disabled>
+                            </label>
                         </div>
-
-                        <label for="priority">
-                            <span>Priority Level:</span>
-                            <select id="priority" disabled>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                        </label>
-                
-                        <label for="deadline">
-                            <span>Deadline</span>
-                            <input type="date" id="deadline" disabled>
-                        </label>
 
                         <div class="repetetiveTask">
                             <div class="wanna">
-                                <span>Repetetive Task</span>
+                                <span>Repetitive Task</span>
                                 <button id="yesRepetitive">Yes</button>
                                 <button id="noRepetitive" class="noActive">No</button>
                             </div>

@@ -25,7 +25,7 @@ const closeCT = () => disappear(configTask);
 
 const openCTcreate = () => {
     appear(configTask);
-
+    // inputsOn_AllTask()
     if (add_CTcreateBtn.classList.contains("disappear"))
         appear(add_CTcreateBtn);
 

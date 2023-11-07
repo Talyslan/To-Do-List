@@ -1,7 +1,22 @@
 const disappear = (e) => e.classList.add("disappear");
 const appear  = (e) => e.classList.remove("disappear");
 
-export { appear, disappear };
+
+import { 
+  title, description, selectPriority, 
+  deadlinePriority, startDate, frequencyPriority
+} from "./variables.js";
+
+const appearAll = () => {
+  appear(title);
+  appear(description);
+  appear(selectPriority);
+  appear(deadlinePriority);
+  appear(startDate);
+  appear(frequencyPriority);
+}
+
+export { appear, disappear, appearAll };
 
 import { boxTask } from "./variables.js";
 

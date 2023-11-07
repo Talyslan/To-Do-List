@@ -39,9 +39,18 @@ let elementClicked = undefined;
 const openCTedit = (e) => {
     appear(configTask);
     disappear(add_CTcreateBtn);
+    buttonsCTedit.forEach(item => {
+        if (item.classList.contains("disappear"))
+            appear(item);
+    });
 
     elementClicked = e.target.parentNode;
     idOfClickedTask = elementClicked.id;
+
+    console.log("====== ABRIU CT PELO EDIT ======")
+    console.log(elementClicked);
+    console.log(idOfClickedTask);
+    console.log("====== FIM CT PELO EDIT ======")
     
     atualizeActualTaskOnCT(idOfClickedTask);
 
@@ -70,10 +79,6 @@ const openCTedit = (e) => {
             break;
     }
 
-    buttonsCTedit.forEach(item => {
-        if (item.classList.contains("disappear"))
-            appear(item);
-    });
 };
 
 const clearInputOfCT = () => {

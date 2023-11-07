@@ -1,11 +1,14 @@
 import { taskList } from "./activies.js";
-import { disappear } from "./interface/interface.js";
+import { appear, disappear, appearAll } from "./interface/interface.js";
 import { putValues, takeValues } from "./allOfInputs.js";
 
 import { 
     yesTagsActive, 
     yesPriorityActive, 
-    yesRepetitiveActive 
+    yesRepetitiveActive, 
+    isTag,
+    isPriority,
+    isRepetitive
 } from "./interface/configTask/yes&no.js";
 import { 
     title, description, selectPriority, 
@@ -18,28 +21,32 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
     const actualTask = actualList[idActualOfTask];
     const resultClass = actualTask.getClassType();
 
+    console.log(' ')
     console.log("=== ATUALIZE ===")
     console.log(actualList)
     console.log(actualTask);
     console.log(resultClass)
-    console.log("=== FIM DO ATUALIZE ===")
 
     switch(resultClass) {
         case 'Task': 
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
+
+            appearAll();
             break;
-        case 'AllTask': 
+        case 'AllTask':
             yesTagsActive();
             yesPriorityActive();
             yesRepetitiveActive();
-
+            
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
+
+            appearAll();
             break;
         case 'TagsTask': 
             yesTagsActive();
@@ -47,6 +54,7 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
 
+            appearAll();
             disappear(selectPriority);
             disappear(deadlinePriority);
             disappear(startDate);
@@ -60,16 +68,19 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
 
+            appearAll();
             disappear(selectPriority);
             disappear(deadlinePriority);
             break;
         case 'PriorityTask': 
             yesPriorityActive();
-            
+
             putValues(title, actualTask.getTitle());
             putValues(description, actualTask.getDescription());
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
+            
+            appearAll();
             break;
         case 'Repetitive_Tags': 
             yesTagsActive();
@@ -80,12 +91,11 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
 
+            appearAll();
             disappear(startDate);
             disappear(frequencyPriority);
-
-            
             break;
-        case 'Priority_Repetitive': 
+            case 'Priority_Repetitive': 
             yesPriorityActive();
             yesRepetitiveActive();
 
@@ -95,6 +105,8 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(deadlinePriority, actualTask.getDeadline());
             putValues(startDate, actualTask.getStartDate());
             putValues(frequencyPriority, actualTask.getFrequency());
+
+            appearAll();
             break;
         case 'Priority_Tags': 
             yesTagsActive();
@@ -105,14 +117,16 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             putValues(selectPriority, actualTask.getPriority());
             putValues(deadlinePriority, actualTask.getDeadline());
 
+            appearAll();
             disappear(selectPriority);
             disappear(deadlinePriority);
-
             break;
         default:
             console.log("não entrou em nada, rpz");
             break;
     };
+
+    console.log("=== FIM DO ATUALIZE ===")
 };
 
 export { atualizeActualTaskOnCT };

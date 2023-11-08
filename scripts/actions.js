@@ -3,9 +3,16 @@ import { isTag } from './interface/configTask/yes&no.js';
 import { TaskList } from './taskCreation/classesTask.js';
 import { checkAllInputsOn } from './interface/inputs/inputsGeral.js';
 import { boxTask, edit_btnPencilAll } from './interface/variables.js';
-import { addTaskInTheBox, takeTags, addTagsOnExistentTask } from './interface/taskActionHTML.js';
 import { createTask_class, taskCreated } from './taskCreation/createTask.js';
-import { closeCT, idOfClickedTask } from './interface/configTask/configTask.js';
+import { addCSSClasses, removeCSSClasses } from './interface/addClassesCSS/addClassesCSS.js';
+import { 
+    addTaskInTheBox, takeTags, 
+    addTagsOnExistentTask 
+} from './interface/taskActionHTML.js';
+import { 
+    closeCT, idOfClickedTask, elementClicked, 
+    atualizeIDandElementClicked 
+} from './interface/configTask/configTask.js';
 import { 
     setNewInfo_Task, setNewInfo_AllTask, setNewInfo_TagsTask, setNewInfo_RepetitiveTask,
     setNewInfo_PriorityTask, setNewInfo_RepetitiveTags, setNewInfo_PriorityRepetitive,
@@ -87,39 +94,27 @@ const removeTask = () => {
 
 const completeTask = (e) => {
     console.log('complete ')
-    const checkbox = e.target;
-    const elementClicked = checkbox.parentNode;
-    const id = checkbox.parentNode.id;
-
-    
     const listOfTask = taskList.getList();
-    let actualTask = listOfTask[id];
-    
-    console.log(listOfTask)
-    console.log(idOfClickedTask)
-    console.log(actualTask)
-    console.log(elementClicked)
-    
-    if (checkbox.checked === true) {
+    let actualTask = listOfTask[idOfClickedTask];
+
+    const checkbox = e.target;
+    if (checkbox.classList.contains("checkbox"))
+        atualizeIDandElementClicked(checkbox.parentNode)
+
+    const hasNoCompleted = !elementClicked.classList.contains("completeTask");
+
+    if (hasNoCompleted) {
         actualTask.completedTask();
-        
-        elementClicked.classList.add("completeTask");
-        elementClicked.children[0].setAttribute("checked", true);
-        elementClicked.children[1].classList.add("completeTags");
-        elementClicked.children[1].children[0].classList.add("risk");
-        elementClicked.children[2].classList.add("completeBtnEdit");
+
+        addCSSClasses();
     }
-    else {
+    
+    if (checkbox.checked === false) {
         actualTask.unCompletedTask();
         
-        elementClicked.classList.remove("completeTask");
-        elementClicked.children[0].setAttribute("checked", false);
-        elementClicked.children[1].classList.remove("completeTags");
-        elementClicked.children[1].children[0].classList.remove("risk");
-        elementClicked.children[2].classList.remove("completeBtnEdit");
+        removeCSSClasses();
     };
-    
-    console.log(actualTask)
+
     edit_btnPencilAll();
     closeCT();
 };

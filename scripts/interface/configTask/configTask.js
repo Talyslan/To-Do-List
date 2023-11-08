@@ -23,7 +23,7 @@ const resetAllTaskCT = () => {
     resetIsAll();
 };
 
-let idOfClickedTask = undefined;
+let idOfClickedTask = 0;
 let elementClicked = undefined;
 
 const atualizeIDandElementClicked = (element) => {
@@ -54,10 +54,7 @@ const openCTedit = (e) => {
             appear(item);
     });
 
-    console.log(e.target.parentNode)
-
     atualizeIDandElementClicked(e.target.parentNode);
-    console.log(elementClicked, idOfClickedTask)
     
     atualizeActualTaskOnCT(idOfClickedTask);
 

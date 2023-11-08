@@ -71,8 +71,11 @@ const takeTags = (...tags) => {
   return tagsList_withSpan.join(" ");
 };
 
-
 const resetList = () => list = [];
+
+const takeIdCheckboxTask = () => {
+  
+};
 
 export { 
   appear, disappear, appearAll,

@@ -5,7 +5,7 @@ import {
 } from './scripts/interface/variables.js';
 
 // Functions
-import { addTask, completeTask, removeTask, alterateTask } from './scripts/activies.js';
+import { addTask, completeTask, removeTask, alterateTask } from './scripts/actions.js';
 
 // Fechar a Config Task a partir da ação 
 add_CTcreateBtn.addEventListener("click", addTask);
@@ -47,5 +47,5 @@ noRepetitive.addEventListener("click", noRepetitiveActive)
 
 //  ======== Add Tags ========
 import { buttonTags } from './scripts/interface/variables.js';
-import { addTagInTheList } from './scripts/funcionalityJS.js';
+import { addTagInTheList } from './scripts/interface/taskActionHTML.js';
 buttonTags.addEventListener("click", addTagInTheList)

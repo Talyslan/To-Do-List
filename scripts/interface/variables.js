@@ -1,7 +1,7 @@
-const createTask_btn = document.querySelector("#btnCreate");
-
 import { openCTedit } from "./configTask/configTask.js";
-import { completeTask } from "../activies.js";
+import { completeTask } from "../actions.js";
+
+const createTask_btn = document.querySelector("#btnCreate");
 
 const edit_btnPencilAll = () => {
     let edit_btnPencil = document.querySelectorAll(".btnEdit");
@@ -45,7 +45,6 @@ export {
 // Title and Description from Config Task
 const title = document.querySelector("#title");
 const description = document.querySelector("#description");
-
 export { title, description };
 
 // For Tags Task
@@ -53,7 +52,6 @@ const yesTags = document.querySelector("#yesTags");
 const noTags = document.querySelector("#noTags");
 const inputTags = document.querySelector("#tags");
 const buttonTags = inputTags.parentNode.children[1];
-
 export { yesTags, noTags, inputTags, buttonTags };
 
 // For Priority Task
@@ -61,16 +59,14 @@ const yesPriority = document.querySelector("#yesPriority");
 const noPriority = document.querySelector("#noPriority");
 const selectPriority = document.querySelector("#priority");
 const deadlinePriority = document.querySelector("#deadline");
-
 export { yesPriority, noPriority, selectPriority, deadlinePriority};
 
 // For Repetitive Task
 const yesRepetitive = document.querySelector("#yesRepetitive");
 const noRepetitive = document.querySelector("#noRepetitive");
 const startDate = document.querySelector("#startDate");
-const frequencyPriority = document.querySelector("#frequency");
-
-export { yesRepetitive, noRepetitive, startDate, frequencyPriority };
+const frequency = document.querySelector("#frequency");
+export { yesRepetitive, noRepetitive, startDate, frequency };
 
 const tags_box = document.querySelector(".addTags");
 const priority_box = document.querySelector(".priorityTask");

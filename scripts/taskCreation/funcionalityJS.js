@@ -1,6 +1,4 @@
-import { isTag, isPriority, isRepetitive } from './interface/configTask/yes&no.js';
-import { takeValues, clearInput } from './allOfInputs.js';
-import { inputTags } from './interface/variables.js';
+import { isTag, isPriority, isRepetitive } from '../interface/configTask/yes&no.js';
 
 const cond = (isTagValue, isRepetitiveValue, isPriorityValue) => {
     return isTag === isTagValue && isRepetitive === isRepetitiveValue && isPriority === isPriorityValue;
@@ -18,14 +16,3 @@ const verifyWhatClass = () => {
 };
 
 export { verifyWhatClass };
-
-let list = [];
-const addTagInTheList = () => {
-    list.push(takeValues(inputTags));
-    clearInput(inputTags);
-};
-
-const resetList = () => list = [];
-
-export { list }
-export { addTagInTheList, resetList };

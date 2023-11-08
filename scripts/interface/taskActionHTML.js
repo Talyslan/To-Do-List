@@ -1,24 +1,23 @@
-const disappear = (e) => e.classList.add("disappear");
-const appear  = (e) => e.classList.remove("disappear");
-
-
+import { takeValues, clearInput } from './inputs/inputsGeral.js';
+import { elementClicked } from './configTask/configTask.js';
+import { taskList } from "../actions.js";
 import { 
   title, description, selectPriority, 
-  deadlinePriority, startDate, frequencyPriority
+  deadlinePriority, startDate, frequency,
+  boxTask,
+  inputTags
 } from "./variables.js";
 
+const disappear = (e) => e.classList.add("disappear");
+const appear  = (e) => e.classList.remove("disappear");
 const appearAll = () => {
   appear(title);
   appear(description);
   appear(selectPriority);
   appear(deadlinePriority);
   appear(startDate);
-  appear(frequencyPriority);
+  appear(frequency);
 }
-
-export { appear, disappear, appearAll };
-
-import { boxTask } from "./variables.js";
 
 // criar um objeto que tera uma propriedade com o numero dos ids e o valor será 
 const addTaskInTheBox = (textTask, id, tags = '') => {
@@ -36,23 +35,16 @@ const addTaskInTheBox = (textTask, id, tags = '') => {
   `
 };
 
-const takeTags = (...tags) => {
-  let tagsList = [...tags];
-  let tagsList_withSpan = [];
-  
-  tagsList.forEach(t => tagsList_withSpan.push(`<span>#${t}</span>`));
-  
-  return tagsList_withSpan.join(" ");
+let list = [];
+const addTagInTheList = () => {
+    list.push(takeValues(inputTags));
+    clearInput(inputTags);
 };
-
-import { taskList } from "../activies.js";
-import { elementClicked } from "./configTask/configTask.js";
-import { list } from "../funcionalityJS.js";
 
 const addTagsOnExistentTask = (id) => {
   const taskClicked = taskList.getList()[id];
   const listTags = taskClicked.getTagList();
-  
+
   list.forEach(i => taskClicked.addTag(i));
 
   let boxTags = elementClicked.children[1];
@@ -70,4 +62,20 @@ const addTagsOnExistentTask = (id) => {
 
 };
 
-export { addTaskInTheBox, takeTags, addTagsOnExistentTask };
+const takeTags = (...tags) => {
+  let tagsList = [...tags];
+  let tagsList_withSpan = [];
+  
+  tagsList.forEach(t => tagsList_withSpan.push(`<span>#${t}</span>`));
+  
+  return tagsList_withSpan.join(" ");
+};
+
+
+const resetList = () => list = [];
+
+export { 
+  appear, disappear, appearAll,
+  addTaskInTheBox, takeTags, addTagsOnExistentTask,
+  list, addTagInTheList, resetList
+};

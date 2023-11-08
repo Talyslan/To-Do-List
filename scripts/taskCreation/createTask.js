@@ -1,11 +1,10 @@
-import { takeValues } from "./allOfInputs.js";
-import { verifyWhatClass } from './funcionalityJS.js';
-import { checkAllInputsOn, resultVerifyInput } from "./allOfInputs.js";
+import { checkAllInputsOn, resultVerifyInput, takeValues } from "../interface/inputs/inputsGeral.js";
+import { verifyWhatClass } from "./funcionalityJS.js";
 
 import { 
     title, description, selectPriority, 
-    deadlinePriority, startDate, frequencyPriority
-} from './interface/variables.js'
+    deadlinePriority, startDate, frequency
+} from '../interface/variables.js'
 
 import {
     Task, PriorityTask, RepetitiveTask, TagsTask, 
@@ -29,7 +28,7 @@ const createTask_class = () => {
             if (resultVerifyInput)
                 task = new AllTask ( 
                     takeValues(title), takeValues(description), takeValues(selectPriority),
-                    takeValues(deadlinePriority), takeValues(frequencyPriority), takeValues(startDate));
+                    takeValues(deadlinePriority), takeValues(frequency), takeValues(startDate));
             break;
         case 'TagsTask':
             if (resultVerifyInput)
@@ -39,7 +38,7 @@ const createTask_class = () => {
             if (resultVerifyInput)
                 task = new RepetitiveTask (
                     takeValues(title), takeValues(description),
-                    takeValues(frequencyPriority), takeValues(startDate)
+                    takeValues(frequency), takeValues(startDate)
                 ); 
             break;
         case 'PriorityTask': 
@@ -53,14 +52,14 @@ const createTask_class = () => {
             if (resultVerifyInput)
                 task = new Repetitive_Tags(
                     takeValues(title), takeValues(description), 
-                    takeValues(frequencyPriority), takeValues(startDate)); 
+                    takeValues(frequency), takeValues(startDate)); 
             break;
         case 'Priority_Repetitive': 
             if (resultVerifyInput)
                 task = new Priority_Repetitive(
                     takeValues(title), takeValues(description), 
                     takeValues(selectPriority), takeValues(deadlinePriority),
-                    takeValues(frequencyPriority), takeValues(startDate)
+                    takeValues(frequency), takeValues(startDate)
                 );
             break;
         case 'Priority_Tags': 

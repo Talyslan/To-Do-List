@@ -1,17 +1,16 @@
-import { list } from './funcionalityJS.js';
+import { list } from './interface/taskActionHTML.js';
 import { isTag } from './interface/configTask/yes&no.js';
-import { TaskList } from './classesTask.js';
-import { checkAllInputsOn } from './allOfInputs.js';
-import { boxTask, edit_btnPencilAll } from './interface/variables.js'
-import { addTaskInTheBox, takeTags, addTagsOnExistentTask } from './interface/interface.js';
-import { createTask_class, taskCreated } from './createTask.js';
-import { closeCT, resetAllTaskCT, idOfClickedTask } from './interface/configTask/configTask.js';
-
+import { TaskList } from './taskCreation/classesTask.js';
+import { checkAllInputsOn } from './interface/inputs/inputsGeral.js';
+import { boxTask, edit_btnPencilAll } from './interface/variables.js';
+import { addTaskInTheBox, takeTags, addTagsOnExistentTask } from './interface/taskActionHTML.js';
+import { createTask_class, taskCreated } from './taskCreation/createTask.js';
+import { closeCT, idOfClickedTask } from './interface/configTask/configTask.js';
 import { 
     setNewInfo_Task, setNewInfo_AllTask, setNewInfo_TagsTask, setNewInfo_RepetitiveTask,
     setNewInfo_PriorityTask, setNewInfo_RepetitiveTags, setNewInfo_PriorityRepetitive,
     setNewInfo_PriorityTags
-} from './atualizeActualTask.js';
+} from './updateTask/updateInJS.js';
 
 //Para os botões de Add Task, Alterate Task, Remove Task e Complete Task
 let taskList = new TaskList();
@@ -34,7 +33,6 @@ const addTask = () => {
         else
             addTaskInTheBox(task.getTitle(), task.getId());
 
-        resetAllTaskCT();
         //atualizar a variável que retorna uma lista com todas as tasks do HTML
         edit_btnPencilAll(); 
         closeCT();
@@ -72,7 +70,6 @@ const alterateTask = () => {
     if (isTag && taskCreated) 
         addTagsOnExistentTask(idOfClickedTask);
 
-    resetAllTaskCT();
     edit_btnPencilAll();
     closeCT();
 };

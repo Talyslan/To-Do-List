@@ -36,6 +36,14 @@ const openCTcreate = () => {
 
 let idOfClickedTask = undefined;
 let elementClicked = undefined;
+
+const atualizeIDandElementClicked = (elementClicked) => {
+    elementClicked = elementClicked;
+    idOfClickedTask = elementClicked.id;
+};
+
+export { atualizeIDandElementClicked, idOfClickedTask, elementClicked };
+
 const openCTedit = (e) => {
     appear(configTask);
     disappear(add_CTcreateBtn);
@@ -44,13 +52,7 @@ const openCTedit = (e) => {
             appear(item);
     });
 
-    elementClicked = e.target.parentNode;
-    idOfClickedTask = elementClicked.id;
-
-    console.log("====== ABRIU CT PELO EDIT ======")
-    console.log(elementClicked);
-    console.log(idOfClickedTask);
-    console.log("====== FIM CT PELO EDIT ======")
+    atualizeIDandElementClicked(e.target.parentNode);
     
     atualizeActualTaskOnCT(idOfClickedTask);
 
@@ -114,4 +116,4 @@ const resetAllTaskCT = () => {
 };
 
 // Funções
-export { closeCT, openCTcreate, openCTedit, idOfClickedTask, elementClicked, resetAllTaskCT };
+export { closeCT, openCTcreate, openCTedit, resetAllTaskCT };

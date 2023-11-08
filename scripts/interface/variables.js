@@ -1,11 +1,16 @@
 const createTask_btn = document.querySelector("#btnCreate");
 
 import { openCTedit } from "./configTask/configTask.js";
+import { completeTask } from "../activies.js";
 
 const edit_btnPencilAll = () => {
     let edit_btnPencil = document.querySelectorAll(".btnEdit");
     for (const edit of edit_btnPencil)
         edit.addEventListener("click", openCTedit);
+
+    let checkboxOfTask = document.querySelectorAll(".checkbox");
+    for (const checkbox of checkboxOfTask)
+        checkbox.addEventListener("change", completeTask);
 }
 
 export { createTask_btn, edit_btnPencilAll };

@@ -39,8 +39,6 @@ const addTask = () => {
         edit_btnPencilAll(); 
         closeCT();
     };
-
-    console.log(taskList.getList())
 };
 
 const alterateTask = () => {
@@ -90,10 +88,43 @@ const removeTask = () => {
     closeCT();
 };
 
-const completeTask = () => {
-    console.log('complete ' + taskCreated)
+const completeTask = (e) => {
+    console.log('complete ')
+    const checkbox = e.target;
+    const elementClicked = checkbox.parentNode;
+    const id = checkbox.parentNode.id;
+
+    
+    const listOfTask = taskList.getList();
+    let actualTask = listOfTask[id];
+    
+    console.log(listOfTask)
+    console.log(idOfClickedTask)
+    console.log(actualTask)
+    console.log(elementClicked)
+    
+    if (checkbox.checked === true) {
+        actualTask.completedTask();
+        
+        elementClicked.classList.add("completeTask");
+        elementClicked.children[0].setAttribute("checked", true);
+        elementClicked.children[1].classList.add("completeTags");
+        elementClicked.children[1].children[0].classList.add("risk");
+        elementClicked.children[2].classList.add("completeBtnEdit");
+    }
+    else {
+        actualTask.unCompletedTask();
+        
+        elementClicked.classList.remove("completeTask");
+        elementClicked.children[0].setAttribute("checked", false);
+        elementClicked.children[1].classList.remove("completeTags");
+        elementClicked.children[1].children[0].classList.remove("risk");
+        elementClicked.children[2].classList.remove("completeBtnEdit");
+    };
+    
+    console.log(actualTask)
     edit_btnPencilAll();
-    // closeCT();
+    closeCT();
 };
 
 export { taskList };

@@ -5,10 +5,7 @@ import { putValues, takeValues } from "./allOfInputs.js";
 import { 
     yesTagsActive, 
     yesPriorityActive, 
-    yesRepetitiveActive, 
-    isTag,
-    isPriority,
-    isRepetitive
+    yesRepetitiveActive
 } from "./interface/configTask/yes&no.js";
 import { 
     title, description, selectPriority, 
@@ -20,12 +17,6 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
     const actualList = taskList.getList();
     const actualTask = actualList[idActualOfTask];
     const resultClass = actualTask.getClassType();
-
-    console.log(' ')
-    console.log("=== ATUALIZE ===")
-    console.log(actualList)
-    console.log(actualTask);
-    console.log(resultClass)
 
     switch(resultClass) {
         case 'Task': 
@@ -125,8 +116,6 @@ const atualizeActualTaskOnCT = (idActualOfTask) => {
             console.log("não entrou em nada, rpz");
             break;
     };
-
-    console.log("=== FIM DO ATUALIZE ===")
 };
 
 export { atualizeActualTaskOnCT };

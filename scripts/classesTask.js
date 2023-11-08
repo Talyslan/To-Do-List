@@ -22,6 +22,8 @@ class Task {
     };
 
     completedTask() { this._completed = true; };
+    unCompletedTask() { this._completed = false; };
+    getCompleted() { return this._completed; };
 
     getId() { return this._id; };
     setId(idValue) { this._id = idValue; };

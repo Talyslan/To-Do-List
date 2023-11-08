@@ -21,12 +21,8 @@ export { verifyWhatClass };
 
 let list = [];
 const addTagInTheList = () => {
-    console.log("=== ADD TAGS IN THE LIST ===")
-    console.log(inputTags)
-    console.log(takeValues(inputTags))
     list.push(takeValues(inputTags));
     clearInput(inputTags);
-    console.log("=== FIM ADD TAGS IN THE LIST ===")
 };
 
 const resetList = () => list = [];

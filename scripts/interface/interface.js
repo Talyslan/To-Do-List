@@ -24,7 +24,7 @@ import { boxTask } from "./variables.js";
 const addTaskInTheBox = (textTask, id, tags = '') => {
   boxTask.innerHTML += `
   <div class="task" id="${id}">
-  <input type="checkbox">
+  <input type="checkbox" class="checkbox">
   
   <div class="box-tags">
   <p contenteditable="true">${textTask}</p>

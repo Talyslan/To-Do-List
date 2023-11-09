@@ -72,3 +72,7 @@ const tags_box = document.querySelector(".addTags");
 const priority_box = document.querySelector(".priorityTask");
 const repetitive_box = document.querySelector(".repetetiveTask");
 export { repetitive_box, priority_box, tags_box };
+
+// Filter
+const filterSelect = document.querySelector("#filterTasks");
+export { filterSelect };

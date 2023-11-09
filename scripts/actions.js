@@ -41,6 +41,10 @@ const addTask = () => {
             addTaskInTheBox(task.getTitle(), task.getId());
 
         //atualizar a variável que retorna uma lista com todas as tasks do HTML
+        console.log(taskList)
+        console.log(task)
+        console.log('==========================')
+
         edit_btnPencilAll(); 
         closeCT();
     };
@@ -77,6 +81,10 @@ const alterateTask = () => {
     if (isTag && taskCreated) 
         addTagsOnExistentTask(idOfClickedTask);
 
+    console.log(taskList)
+    console.log(taskClicked)
+    console.log('==========================')
+
     edit_btnPencilAll();
     closeCT();
 };
@@ -88,13 +96,16 @@ const removeTask = () => {
 
     boxTask.children[idOfClickedTask].remove();
 
+    console.log(taskList)
+    console.log('')
+
     edit_btnPencilAll();
     closeCT();
 };
 
 const completeTask = (e) => {
     const listOfTask = taskList.getList();
-    let actualTask = listOfTask[idOfClickedTask];
+    const actualTask = listOfTask[idOfClickedTask];
 
     const checkbox = e.target;
     if (checkbox.classList.contains("checkbox"))
@@ -113,6 +124,10 @@ const completeTask = (e) => {
         
         removeCSSClasses();
     };
+
+    console.log(taskList)
+    console.log(actualTask)
+    console.log('==========================')
 
     edit_btnPencilAll();
     closeCT();

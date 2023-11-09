@@ -30,21 +30,19 @@ const verifyInput = (...element) => {
 };
 
 //error de return undefined
-//const verifyInput = (errorMessage, ...element) => {
-//const listElements = [...element];
+// const verifyInput = (...element) => {
+//     const listElements = [...element];
 
-//listElements.forEach(e => {
-//if (e.value === "") {
-//  errorMessage.innerHTML = "Error! Write something";
-//  return false;
-//}
-//else {
-//  errorMessage.innerHTML = "";
-//  }
-//});
-
-//   return true;
-//};
+//     listElements.forEach(e => {
+//         if (e.value === "") {
+//             errorMessage.innerHTML = "Error! Write something";
+//             return false;
+//         }
+//         else 
+//             errorMessage.innerHTML = "";
+    
+//         return true;
+// });
 
 let resultVerifyInput = undefined;
 const checkAllInputsOn = () => {

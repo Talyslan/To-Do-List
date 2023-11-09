@@ -1,0 +1,14 @@
+.card {
+    background: var(--green);
+    gap: 2em;
+    padding: 1em;
+    border-radius: 8px;;
+    height: 90%;
+    width: 85%;
+    max-width: 650px;
+    box-shadow: 0 4px 8px 0 #00081cb5;
+}
+
+.card p {
+    color: var(--black);
+}

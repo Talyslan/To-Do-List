@@ -13,11 +13,13 @@
 .noActive { background: var(--red); transform: scale(0.95);}
 
 /* For complete tasks */
-.completeTask { 
-    background: rgb(120, 243, 120);
+.box-task .completeTask { 
+    border: 3px solid var(--cinza-light);
+    background: var(--green-light);
     color: var(--black);
-    font-weight: bold;
 }
+
+.box-task .completeTask p { color: var(--black); }
 
 .completeTags span { background: var(--white); }
 

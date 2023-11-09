@@ -26,7 +26,7 @@ const addTaskInTheBox = (textTask, id, tags = '') => {
   <input type="checkbox" class="checkbox">
   
   <div class="box-tags">
-  <p contenteditable="true">${textTask}</p>
+  <p>${textTask}</p>
   ${tags}
   </div>
   

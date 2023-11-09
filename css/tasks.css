@@ -16,8 +16,14 @@
     box-shadow: -3px 4px 12px 0px #00081cb5;
 }
 
-.task .box-tags p,
-.task .box-tags span { max-width: 210px; min-width: auto ;}
+.task .box-tags p { color: var(--white); }
+
+.task .box-tags > p,
+.task .box-tags span { 
+    max-width: 210px; 
+    min-width: auto ;
+
+}
 
 .box-tags span { 
     font-size: .8em; 
@@ -25,7 +31,8 @@
     filter: opacity(.75);
     background: var(--red);
     text-align: center;
-    margin: .2em;
+    margin: .1em;
+    padding: 2px;
     transition: 0.3s ease;
 }
 
@@ -37,7 +44,7 @@
 }
 
 .task > span:hover {
-    background-color: var(--red-hover);
+    background: var(--red-hover);
     cursor: pointer;
     transform: scale(1.1); 
 }

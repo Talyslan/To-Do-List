@@ -1,5 +1,5 @@
 .config-Task {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, .8);
     backdrop-filter: blur(3px);
     z-index: 1;
     /*cobrir toda a página*/

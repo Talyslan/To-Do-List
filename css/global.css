@@ -5,15 +5,18 @@
 }
 
 :root {
-    --black:#313132;
+    --black: #1A1B1B;
     --black-texts:#1a1a1a;
+    --cinza: #383939;
+    --cinza-light: #585858;
     --white: #FFFFFC;
-    --purple: #AA46FF;
+    --purple: #b27be3;
     --red: #F87C8F;
     --red-hover: #dd6e7e;
     --blue: #639CF0;
-    --cinza: #6e6e6e;
-    --green: #82f382;
+    --green: #82f3aa;
+    --green-dark: #45875c;
+    --green-light: #9be7b6;
 }
 
 ::-webkit-scrollbar { width: 3px; }
@@ -25,12 +28,16 @@ body, button, input, select, textarea {
 }
 
 body {
-    background: var(--purple);
+    background: var(--black);
     color: var(--white);
     height: 100vh;
 }
 
-header { background: var(--black); width: 100%; }
+header { 
+    background: var(--black); 
+    width: 100%;
+    box-shadow: 0px 0 px var(--black);
+}
 
 header h1 {
     padding: 12px 0;
@@ -44,14 +51,15 @@ footer span {
     text-align: center;
     display: block;
     padding: 12px 0;
-    opacity: .6;
+    opacity: .2;
 }
 
-select { padding: 8px 4px; border-radius: 4px;}
+select, textarea { padding: 8px 4px; border-radius: 4px;}
 button { 
     padding: 4px 12px; 
     background: var(--white);
     border-radius: 6px;
+    font-weight: bold;
     margin: 5px;
 }
 
@@ -76,21 +84,10 @@ main,
     flex-direction: column;
 }
 
-.card {
-    background: var(--black);
-    gap: 2em;
-    padding: 1em;
-    border-radius: 8px;;
-    height: 90%;
-    width: 85%;
-    max-width: 650px;
-    box-shadow: 0 4px 8px 0 #00081cb5;
-}
-
 .ladolado { display: flex; flex-direction: column; gap: 3em; }
 
 .baixobaixo {
-    background: var(--blue);
+    background: var(--purple);
     border-radius: .6em;
     margin: 0 auto;
     width: 85%;

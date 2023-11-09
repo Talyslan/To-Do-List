@@ -49,3 +49,9 @@ noRepetitive.addEventListener("click", noRepetitiveActive)
 import { buttonTags } from './scripts/interface/variables.js';
 import { addTagInTheList } from './scripts/interface/taskActionHTML.js';
 buttonTags.addEventListener("click", addTagInTheList)
+
+// Filter
+import { filterSelect } from './scripts/interface/variables.js';
+import { filter } from './scripts/interface/filter/filter.js'
+
+filterSelect.addEventListener("change", filter);

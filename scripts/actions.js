@@ -93,7 +93,6 @@ const removeTask = () => {
 };
 
 const completeTask = (e) => {
-    console.log('complete ')
     const listOfTask = taskList.getList();
     let actualTask = listOfTask[idOfClickedTask];
 

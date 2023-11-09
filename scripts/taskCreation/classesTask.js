@@ -88,6 +88,8 @@ class Priority_Tags extends PriorityTask {
     }
 
     addTag(tag) { this._tagsList.push(tag) };
+
+    getTagList() { return this._tagsList; }
 }
 
 // Classe Prioridade e Repetitive juntas
@@ -113,6 +115,8 @@ class Repetitive_Tags extends RepetitiveTask {
     };
 
     addTag(tag) { this._tagsList.push(tag) };
+
+    getTagList() { return this._tagsList; }
 }
 
 class AllTask extends Priority_Repetitive {
@@ -122,6 +126,8 @@ class AllTask extends Priority_Repetitive {
     };
 
     addTag(tag) { this._tagsList.push(tag) };
+
+    getTagList() { return this._tagsList; }
 };
 
 export { 

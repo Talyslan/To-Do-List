@@ -50,7 +50,8 @@ const inputsOn_PriorityTags = () => {
 };
 
 export { 
-    inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask,
-    inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
+    appearAllInputs,
+    inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask, inputsOn_PriorityTask, 
+    inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
     inputsOn_PriorityTags
 };

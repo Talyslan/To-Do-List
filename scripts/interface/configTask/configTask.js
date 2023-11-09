@@ -14,7 +14,8 @@ import {
 import { 
     inputsOn_Task, inputsOn_AllTask, inputsOn_TagsTask, inputsOn_RepetitiveTask,
     inputsOn_PriorityTask, inputsOn_RepetitiveTags, inputsOn_PriorityRepetitive,
-    inputsOn_PriorityTags
+    inputsOn_PriorityTags,
+    appearAllInputs
 } from '../inputs/inputsBaseadOnTask.js';
 
 const resetAllTaskCT = () => {
@@ -34,6 +35,7 @@ const atualizeIDandElementClicked = (element) => {
 const closeCT = () => disappear(configTask);
 
 const openCTcreate = () => {
+    appearAllInputs();
     resetAllTaskCT();
     appear(configTask);
 
@@ -46,7 +48,9 @@ const openCTcreate = () => {
 };
 
 const openCTedit = (e) => {
+    appearAllInputs();
     resetAllTaskCT();
+
     appear(configTask);
     disappear(add_CTcreateBtn);
     buttonsCTedit.forEach(item => {

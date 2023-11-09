@@ -1,23 +1,10 @@
 import { takeValues, clearInput } from './inputs/inputsGeral.js';
 import { elementClicked } from './configTask/configTask.js';
 import { taskList } from "../actions.js";
-import { 
-  title, description, selectPriority, 
-  deadlinePriority, startDate, frequency,
-  boxTask,
-  inputTags
-} from "./variables.js";
+import { boxTask, inputTags } from "./variables.js";
 
 const disappear = (e) => e.classList.add("disappear");
 const appear  = (e) => e.classList.remove("disappear");
-const appearAll = () => {
-  appear(title);
-  appear(description);
-  appear(selectPriority);
-  appear(deadlinePriority);
-  appear(startDate);
-  appear(frequency);
-}
 
 // criar um objeto que tera uma propriedade com o numero dos ids e o valor será 
 const addTaskInTheBox = (textTask, id, tags = '') => {
@@ -43,6 +30,7 @@ const addTagInTheList = () => {
 
 const addTagsOnExistentTask = (id) => {
   const taskClicked = taskList.getList()[id];
+
   const listTags = taskClicked.getTagList();
 
   list.forEach(i => taskClicked.addTag(i));
@@ -73,12 +61,8 @@ const takeTags = (...tags) => {
 
 const resetList = () => list = [];
 
-const takeIdCheckboxTask = () => {
-  
-};
-
 export { 
-  appear, disappear, appearAll,
-  addTaskInTheBox, takeTags, addTagsOnExistentTask,
+  appear, disappear, addTaskInTheBox, 
+  takeTags, addTagsOnExistentTask,
   list, addTagInTheList, resetList
 };

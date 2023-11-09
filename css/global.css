@@ -8,12 +8,14 @@
     --black: #1A1B1B;
     --black-texts:#1a1a1a;
     --cinza: #383939;
-    --cinza-light: #585858;
+    --cinza-light: #9e9e9e;
     --white: #FFFFFC;
     --purple: #b27be3;
+    --purple-dark: #6e4a8d;
     --red: #F87C8F;
-    --red-hover: #dd6e7e;
+    --red-hover: #aa5460;
     --blue: #639CF0;
+    --blue-dark: #466ba3;
     --green: #82f3aa;
     --green-dark: #45875c;
     --green-light: #9be7b6;
@@ -33,17 +35,9 @@ body {
     height: 100vh;
 }
 
-header { 
-    background: var(--black); 
-    width: 100%;
-    box-shadow: 0px 0 px var(--black);
-}
+ul { list-style-type: none; }
 
-header h1 {
-    padding: 12px 0;
-    font-size: 2.5em;
-    text-align: center;
-}
+a { text-decoration: none; color: var(--white); }
 
 main { height: 80vh; justify-content: center; }
 
@@ -71,6 +65,9 @@ input { padding: 1em; }
 
 input { border-radius: 3px; }
 input[type="checkbox"] { width: 18px; height: 18px;}
+
+input[type="checkbox"]:checked ~ .checkbox{ background: red; }
+
 input[type="checkbox"]:hover { cursor: pointer; }
 input[type="checkbox"]:active { transform: scale(1.1); }
 

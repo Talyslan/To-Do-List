@@ -1,9 +1,8 @@
 .inicio {
     background: var(--cinza);
-    /* background: linear-gradient(90deg, #A842FF 0%, #f87c8f 39.06%, #639CF0 66.15%, #BA75FF 100%); */
     padding: 16px;
     gap: 24px;
-    border-radius: 5px;
+    border-radius: 2px;
     width: 100%;
     box-shadow: 0 4px 8px 0 #00081cb5;
 }
@@ -21,7 +20,7 @@
 }
 
 .inicio button {
-    border: solid var(--cinza-light) 4px;
+    border: solid var(--cinza) 3px;
     box-shadow: 5px 5px 5px 0px #00000040;
     transition: 0.3s ease;
 }

@@ -1,0 +1,56 @@
+header { 
+    background: var(--black); 
+    width: 100%;
+    padding: .6em 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 1px 36px 0 var(--cinza);
+}
+
+header h1 {
+    padding: 12px 0;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+header a img { width: 60%; min-width: 90px; transition: 0.2s ease;}
+
+header a img:hover { transform: scale(.98); }
+
+nav a { transition: 0.3s ease; }
+
+nav a:hover { color: var(--cinza-light); }
+
+nav ul { display: flex; gap: 2em; }
+
+nav ul li a { padding: .6em; }
+
+nav ul li:first-of-type a,
+nav ul li:last-of-type a {
+    background: none;
+    border-radius: .4em;
+    border: 2px solid var(--black);
+}
+
+nav ul li:first-of-type a:hover,
+nav ul li:last-of-type a:hover {
+    color: var(--black);
+    background: var(--purple);
+    box-shadow: 5px 5px 0px 0px var(--purple-dark);
+}
+
+nav ul li:last-of-type a:hover {
+    background: var(--red);
+    box-shadow: 5px 5px 0px 0px var(--red-hover);
+}
+
+nav ul li:first-of-type,
+nav ul li:last-of-type {
+    transition: 0.3s ease;
+}
+
+nav ul li:first-of-type:hover,
+nav ul li:last-of-type:hover {
+    transform: translateX(-6px);
+}

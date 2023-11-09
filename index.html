@@ -13,13 +13,25 @@
     <link rel="stylesheet" href="./css/configTask.css">
     <link rel="stylesheet" href="./css/descriptionBoxTask.css">
     <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/toJs.css">
     <link rel="shortcut icon" href="images/favicon.ico" />
     <title>To Do List</title>
 </head>
 <body>
-    <header> <h1>To-Do List </h1> </header>
-    
+    <header>
+        <a href="#">
+            <img src="./images/to-do-list.png" alt="">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
         <div class="config-Task disappear">
             <h2>Create a task</h2>
@@ -123,35 +135,7 @@
             <!-- # | TITLE | STATUS (TODO, COMPLETE, PROCESSING) | EDIT | REMOVE -->
             <!-- <div class="description-boxTask"></div> -->
 
-            <div class="box-task">
-                <!-- <div class="task completeTask" id="0">
-                    <input type="checkbox" class="checkbox" checked>
-                    
-                    <div class="box-tags completeTags">
-                        <p class="risk">Titulo da task editavel</p>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                    </div>
-                    
-                    <span class="btnEdit completeBtnEdit">&#x270E;</span>
-                </div>
-
-                <div class="task" id="0">
-                    <input type="checkbox" class="checkbox">
-                    
-                    <div class="box-tags">
-                        <p>Titulo da task editavel</p>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                        <span>#ifal</span>
-                    </div>
-                    
-                    <span class="btnEdit">&#x270E;</span>
-                </div> -->
-            </div>
+            <div class="box-task"></div>
         </div>
     </main>
 

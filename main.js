@@ -2,10 +2,10 @@
 import { 
     add_CTcreateBtn, taskComplete_CTeditBtn,
     deleteTask_CTeditBtn, alterateTask_CTeditBtn
-} from './scripts/interface/variables.js';
+} from './scripts/to-do-list/interface/variables.js';
 
 // Functions
-import { addTask, completeTask, removeTask, alterateTask } from './scripts/actions.js';
+import { addTask, completeTask, removeTask, alterateTask } from './scripts/to-do-list/actions.js';
 
 // Fechar a Config Task a partir da ação 
 add_CTcreateBtn.addEventListener("click", addTask);
@@ -14,9 +14,9 @@ deleteTask_CTeditBtn.addEventListener("click", removeTask);
 alterateTask_CTeditBtn.addEventListener("click", alterateTask);
 
 //  ======== Botões da tela inicial "Create a Task" e os ícones do lápis ========
-import { createTask_btn, edit_btnPencilAll } from './scripts/interface/variables.js'
+import { createTask_btn, edit_btnPencilAll } from './scripts/to-do-list/interface/variables.js'
 // Function
-import { openCTcreate } from './scripts/interface/configTask/configTask.js';
+import { openCTcreate } from './scripts/to-do-list/interface/configTask/configTask.js';
 
 createTask_btn.addEventListener("click", openCTcreate);
 edit_btnPencilAll();
@@ -26,14 +26,14 @@ import {
     yesTags, noTags, 
     yesPriority, noPriority, 
     yesRepetitive, noRepetitive 
-} from './scripts/interface/variables.js';
+} from './scripts/to-do-list/interface/variables.js';
 
 // Functions
 import { 
     yesTagsActive, noTagActive,
     yesPriorityActive, noPriorityActive,
     yesRepetitiveActive, noRepetitiveActive 
-} from './scripts/interface/configTask/yes&no.js';
+} from './scripts/to-do-list/interface/configTask/yes&no.js';
 
 // For Tags Task
 yesTags.addEventListener("click", yesTagsActive);
@@ -46,12 +46,12 @@ yesRepetitive.addEventListener("click", yesRepetitiveActive);
 noRepetitive.addEventListener("click", noRepetitiveActive)
 
 //  ======== Add Tags ========
-import { buttonTags } from './scripts/interface/variables.js';
-import { addTagInTheList } from './scripts/interface/taskActionHTML.js';
+import { buttonTags } from './scripts/to-do-list/interface/variables.js';
+import { addTagInTheList } from './scripts/to-do-list/interface/taskActionHTML.js';
 buttonTags.addEventListener("click", addTagInTheList)
 
 // Filter
-import { filterSelect } from './scripts/interface/variables.js';
-import { filter } from './scripts/interface/filter/filter.js'
+import { filterSelect } from './scripts/to-do-list/interface/variables.js';
+import { filter } from './scripts/to-do-list/interface/filter/filter.js'
 
 filterSelect.addEventListener("change", filter);

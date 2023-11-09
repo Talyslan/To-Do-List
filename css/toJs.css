@@ -14,7 +14,7 @@
 
 /* For complete tasks */
 .box-task .completeTask { 
-    border: 3px solid var(--cinza-light);
+    border-color: var(--cinza);
     background: var(--green-light);
     color: var(--black);
 }

@@ -6,9 +6,7 @@
     height: 90%;
     width: 85%;
     max-width: 650px;
-    box-shadow: 0 4px 8px 0 #00081cb5;
+    box-shadow: 0px 0px 16px var(--cinza-light);
 }
 
-.card p {
-    color: var(--black);
-}
+.card p { color: var(--black); }

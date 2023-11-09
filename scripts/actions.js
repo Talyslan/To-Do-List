@@ -26,7 +26,7 @@ let ids = 0;
 const addTask = () => {
     const task = createTask_class();
 
-    if (taskCreated !== undefined) {
+    if (task !== undefined) {
         task.setId(ids);
         ids++;
         taskList.addTask(task);

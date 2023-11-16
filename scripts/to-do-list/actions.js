@@ -94,6 +94,9 @@ const removeTask = () => {
     const indiceOfTask = listOfTask.indexOf(idOfClickedTask);
     listOfTask.splice(indiceOfTask, 1);
 
+    console.log(indiceOfTask)
+    console.log(boxTask)
+    console.log(boxTask.children)
     boxTask.children[idOfClickedTask].remove();
 
     console.log(taskList)

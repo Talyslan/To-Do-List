@@ -18,6 +18,8 @@ import {
 const atualizeActualTaskOnCT = (idActualOfTask) => {
     const actualList = taskList.getList();
     const actualTask = actualList[idActualOfTask];
+    console.log(idActualOfTask)
+    console.log(actualTask)
     const resultClass = actualTask.getClassType();
 
     switch(resultClass) {

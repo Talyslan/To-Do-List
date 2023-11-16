@@ -1,7 +1,7 @@
 import { takeValues, clearInput } from './inputs/inputsGeral.js';
 import { elementClicked } from './configTask/configTask.js';
 import { taskList } from "../actions.js";
-import { boxTask, inputTags } from "./variables.js";
+import { boxTask, takeBoxTask, inputTags } from "./variables.js";
 
 const disappear = (e) => e.classList.add("disappear");
 const appear  = (e) => e.classList.remove("disappear");
@@ -35,6 +35,7 @@ const addTagsOnExistentTask = (id) => {
 
   list.forEach(i => taskClicked.addTag(i));
 
+  takeBoxTask();
   let boxTags = elementClicked.children[1];
 
   while (boxTags.children[1] !== undefined)

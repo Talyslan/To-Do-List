@@ -1,6 +1,11 @@
 import { filterSelect } from "../variables.js";
+import { addTaskInTheBox } from "../taskActionHTML.js";
+import { taskList } from "../../actions.js";
 
-const all = () => {};
+const all = () => {
+    
+};
+
 const checks = () => {};
 const pendents = () => {};
 
